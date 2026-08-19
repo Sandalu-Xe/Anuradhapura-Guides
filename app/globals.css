@@ -36,9 +36,10 @@ h2 em { color: #9c7943; font-weight: 400; }
 .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; color: #fff; overflow: hidden; background: linear-gradient(90deg, rgba(8,22,14,.91) 0%, rgba(8,22,14,.55) 50%, rgba(8,22,14,.12) 100%), linear-gradient(0deg, rgba(8,22,14,.6), transparent 45%), url('/places/ruwanweliseya.jpg') center / cover; }
 .hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, rgba(220,174,89,.08), transparent 36%); }
 .nav { position: relative; z-index: 3; height: 96px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--light-line); }
-.brand { display: flex; align-items: center; gap: 13px; font-size: 16px; font-weight: 700; letter-spacing: -.02em; }
-.brand em { display: block; color: var(--gold); font-family: Georgia, serif; font-weight: 400; }
-.brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid rgba(220,174,89,.7); border-radius: 50%; color: var(--gold); font-family: Georgia, serif; font-size: 14px; letter-spacing: .08em; }
+.brand { display: flex; align-items: center; }
+.brand-logo-wrap { width: 68px; height: 68px; flex: 0 0 68px; border-radius: 50%; filter: drop-shadow(0 9px 20px rgba(0,0,0,.24)); transition: transform .2s ease, filter .2s ease; }
+.brand-logo-wrap:hover { transform: translateY(-2px) scale(1.025); filter: drop-shadow(0 12px 24px rgba(0,0,0,.3)); }
+.brand-logo { width: 100%; height: 100%; object-fit: contain; }
 .nav-links { display: flex; gap: 28px; color: rgba(255,255,255,.84); font-size: 12px; }
 .nav-links a { transition: color .2s; }
 .nav-links a:hover { color: var(--gold); }
@@ -197,7 +198,7 @@ h2 em { color: #9c7943; font-weight: 400; }
 /* Footer */
 footer { padding-top: 80px; background: #0d1813; color: #fff; }
 .footer-top { display: grid; grid-template-columns: 1.2fr .7fr .9fr 1.2fr; gap: 55px; padding-bottom: 70px; }
-.footer-brand { margin-bottom: 22px; }
+.footer-brand { width: 86px; height: 86px; flex-basis: 86px; margin-bottom: 22px; }
 .footer-top > div:first-child > p { max-width: 230px; color: rgba(255,255,255,.46); font-family: Georgia, serif; font-size: 13px; line-height: 1.65; }
 .footer-links { display: flex; flex-direction: column; gap: 13px; }
 .footer-links > span, .footer-cta > span { margin-bottom: 5px; color: var(--gold); font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .17em; }
@@ -243,8 +244,8 @@ footer { padding-top: 80px; background: #0d1813; color: #fff; }
   .shell { width: min(100% - 28px, 1180px); }
   .section { padding-block: 78px; }
   .nav { height: 78px; }
-  .brand { font-size: 14px; }
-  .brand-mark { width: 36px; height: 36px; }
+  .brand-logo-wrap { width: 56px; height: 56px; flex-basis: 56px; }
+  .footer-brand { width: 78px; height: 78px; flex-basis: 78px; }
   .hero-content { padding-top: 60px; }
   .hero h1 { font-size: clamp(50px, 15vw, 72px); }
   .hero-content > p { font-size: 16px; }

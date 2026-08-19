@@ -7,14 +7,14 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = incoming.get("x-forwarded-host") ?? incoming.get("host") ?? "localhost:3000";
   const protocol = incoming.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const base = new URL(`${protocol}://${host}`);
-  const title = "Anuradhapura Guide | Private Heritage Tours in Sri Lanka";
+  const title = "Anuradhapura Guidance | Private Heritage Tours in Sri Lanka";
   const description = "Private, English-speaking journeys through Anuradhapura's sacred city, Mihintale, and Wilpattu National Park.";
 
   return {
     metadataBase: base,
     title,
     description,
-    icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+    icons: { icon: "/anuradhapura-guidance-logo.png", shortcut: "/anuradhapura-guidance-logo.png" },
     openGraph: {
       title,
       description,

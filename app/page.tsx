@@ -82,9 +82,8 @@ export default function Home() {
     <main>
       <section className="hero" id="home">
         <nav className="nav shell" aria-label="Primary navigation">
-          <a className="brand" href="#home" aria-label="Anuradhapura Guide home">
-            <span className="brand-mark">AG</span>
-            <span>Anuradhapura <em>Guide</em></span>
+          <a className="brand brand-logo-wrap" href="#home" aria-label="Anuradhapura Guidance home">
+            <img className="brand-logo" src="/anuradhapura-guidance-logo.png" alt="Anuradhapura Guidance symbol" />
           </a>
           <div className="nav-links">
             <a href="#home">Home</a>
@@ -292,9 +291,8 @@ export default function Home() {
       <footer id="contact">
         <div className="shell footer-top">
           <div>
-            <a className="brand footer-brand" href="#home">
-              <span className="brand-mark">AG</span>
-              <span>Anuradhapura <em>Guide</em></span>
+            <a className="brand brand-logo-wrap footer-brand" href="#home">
+              <img className="brand-logo" src="/anuradhapura-guidance-logo.png" alt="Anuradhapura Guidance symbol" />
             </a>
             <p>Private heritage journeys for curious travellers in Sri Lanka&apos;s ancient north.</p>
           </div>
@@ -303,7 +301,7 @@ export default function Home() {
           <div className="footer-cta"><span>Ready when you are</span><h3>Let&apos;s make your ancient city visit count.</h3><a className="button button-gold" href="#booking">Plan my tour <span>↗</span></a></div>
         </div>
         <div className="shell footer-bottom">
-          <span>© 2026 Anuradhapura Guide</span>
+          <span>© 2026 Anuradhapura Guidance</span>
           <span>Made for international travellers</span>
           <details><summary>Photography credits</summary><p>Wikimedia Commons, Sri Lanka Museum Directory, Travel Map Sri Lanka, Mountain Kingdoms, and Travel Rebels.</p></details>
         </div>
