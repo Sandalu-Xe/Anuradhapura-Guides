@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 
-export default function BookingForm() {
+export default function BookingForm({ initialInterest = "" }: { initialInterest?: string }) {
   const [sent, setSent] = useState(false);
 
   function submitBooking(event: FormEvent<HTMLFormElement>) {
@@ -50,6 +50,22 @@ export default function BookingForm() {
           <option value="2">2 travellers</option>
           <option value="3-4">3–4 travellers</option>
           <option value="5+">5+ travellers</option>
+        </select>
+      </div>
+      <div className="field full">
+        <label htmlFor="interest">Journey interest</label>
+        <select id="interest" name="interest" defaultValue={initialInterest}>
+          <option value="">Help me choose</option>
+          <option value="sacred-city-essentials">Sacred City Essentials</option>
+          <option value="ancient-city-unhurried">Ancient City Unhurried</option>
+          <option value="heritage-wild-north">Heritage & Wild North</option>
+          <option value="ruwanweliseya">Ruwanweliseya</option>
+          <option value="jaya-sri-maha-bodhi">Jaya Sri Maha Bodhi</option>
+          <option value="jetavanaramaya">Jetavanaramaya</option>
+          <option value="isurumuniya">Isurumuniya</option>
+          <option value="samadhi-buddha">Samadhi Buddha</option>
+          <option value="mihintale">Mihintale</option>
+          <option value="wilpattu">Wilpattu National Park</option>
         </select>
       </div>
       <div className="field full">

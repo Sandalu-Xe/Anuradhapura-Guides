@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import { SiteFooter } from "./_components/site-footer";
+import { SiteHeader } from "./_components/site-header";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -12,29 +14,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: base,
-    title,
+    title: { default: title, template: "%s | Anuradhapura Guidance" },
     description,
     icons: { icon: "/anuradhapura-guidance-logo.png", shortcut: "/anuradhapura-guidance-logo.png" },
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      locale: "en_US",
-      images: [{ url: new URL("/og.png", base).toString(), width: 1536, height: 909, alt: "Anuradhapura Guide — Private Heritage Journeys" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [new URL("/og.png", base).toString()],
-    },
+    openGraph: { title, description, type: "website", locale: "en_US", images: [{ url: "/og.png", width: 1536, height: 909, alt: "Anuradhapura Guidance — Private Heritage Journeys" }] },
+    twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
   };
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><SiteHeader />{children}<SiteFooter /></body>
     </html>
   );
 }
