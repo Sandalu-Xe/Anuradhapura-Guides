@@ -6,14 +6,14 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "dev": "vinext dev",
-    "build": "vinext build",
-    "start": "vinext start",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "drizzle-kit generate"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
+    "next": "^16.3.2",
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },
