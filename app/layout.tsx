@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import { ScrollReveal } from "./_components/scroll-reveal";
 import { SiteFooter } from "./_components/site-footer";
 import { SiteHeader } from "./_components/site-header";
 import "./globals.css";
@@ -25,7 +26,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body><SiteHeader />{children}<SiteFooter /></body>
+      <body>
+        <ScrollReveal />
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }

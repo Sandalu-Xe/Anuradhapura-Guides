@@ -121,22 +121,23 @@ export default function HomePage() {
         <Image src="/places/ruwanweliseya.jpg" alt="Ruwanweliseya stupa at Anuradhapura" fill sizes="100vw" priority />
         <div className="home-hero-shade" />
 
-        <div className="shell home-hero-content">
+        <div className="shell home-hero-content hero-centered">
           <div className="hero-story-col">
-            <p className="eyebrow eyebrow-light">
-              <span />Private tours with an official local guide
+            <p className="eyebrow eyebrow-light hero-eyebrow-center">
+              <span className="eyebrow-line" />Private tours with an official local guide<span className="eyebrow-line" />
             </p>
 
-            <h1>
-              Discover ancient<br />
+            <h1 className="hero-h1-center">
+              Discover <span className="hero-word-ancient">ancient</span><br />
               <em>Anuradhapura.</em>
             </h1>
 
-            <p className="hero-human-lead">
-              Walk through Sri Lanka&apos;s sacred first capital at an unhurried pace. I&apos;ll bring 2,500 years of history, Buddhism, culture, and living traditions clearly to life.
+            <p className="hero-human-lead hero-lead-center">
+              Walk through Sri Lanka&apos;s sacred first capital at an unhurried pace.<br className="hero-br" />
+              I&apos;ll bring 2,500 years of history, Buddhism, culture, and living traditions clearly to life.
             </p>
 
-            <div className="hero-actions">
+            <div className="hero-actions hero-actions-center">
               <a className="button button-gold" href="/contact?journey=ancient-city-complete">
                 Plan your private tour <span>↗</span>
               </a>
@@ -145,7 +146,7 @@ export default function HomePage() {
               </a>
             </div>
 
-            <div className="hero-trust-line" aria-label="Tour highlights">
+            <div className="hero-trust-line hero-trust-center" aria-label="Tour highlights">
               <span>Official local guide</span>
               <span>Private pace</span>
               <span>English speaking</span>
