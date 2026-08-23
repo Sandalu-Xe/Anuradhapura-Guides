@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-html-link-for-pages -- Native anchors avoid a vinext RSC prefetch runtime failure. */
 import Image from "next/image";
 import { CtaStrip } from "./_components/cta-strip";
 import { reviews } from "./_data/site";
@@ -117,106 +116,76 @@ const pageDirectory = [
 export default function HomePage() {
   return (
     <main>
-      {/* 1. Authentic Editorial Hero Section */}
+      {/* 1. Clear, focused introduction */}
       <section className="home-hero">
         <Image src="/places/ruwanweliseya.jpg" alt="Ruwanweliseya stupa at Anuradhapura" fill sizes="100vw" priority />
         <div className="home-hero-shade" />
 
         <div className="shell home-hero-content">
-          <div className="home-hero-layout">
-            <div className="hero-story-col">
-              <p className="eyebrow eyebrow-light">
-                <span />Official Licensed Tour Guide · Anuradhapura
-              </p>
+          <div className="hero-story-col">
+            <p className="eyebrow eyebrow-light">
+              <span />Private tours with an official local guide
+            </p>
 
-              <h1>
-                Visiting Anuradhapura<br />
-                <em>Ancient City</em>
-              </h1>
+            <h1>
+              Discover ancient<br />
+              <em>Anuradhapura.</em>
+            </h1>
 
-              <p className="hero-human-lead">
-                Ayubowan. I invite you to walk through Sri Lanka&apos;s most sacred ancient capital with an official local guide. This is not a rushed history lecture—it is an unhurried, personal journey through 2,500 years of living Buddhism, royal architecture, and timeless Sri Lankan culture.
-              </p>
+            <p className="hero-human-lead">
+              Walk through Sri Lanka&apos;s sacred first capital at an unhurried pace. I&apos;ll bring 2,500 years of history, Buddhism, culture, and living traditions clearly to life.
+            </p>
 
-              <div className="hero-actions">
-                <a className="button button-gold" href="/contact?journey=ancient-city-complete">
-                  Book this guided tour <span>↗</span>
-                </a>
-                <a className="button button-outline" href="#sacred-itinerary">
-                  View the 6 sacred places ↓
-                </a>
-              </div>
+            <div className="hero-actions">
+              <a className="button button-gold" href="/contact?journey=ancient-city-complete">
+                Plan your private tour <span>↗</span>
+              </a>
+              <a className="hero-text-link" href="#tour-overview">
+                See what is included <span>↓</span>
+              </a>
             </div>
 
-            {/* Right: Curated Tour Route Card */}
-            <aside className="hero-route-panel" aria-label="Curated Sacred City Tour Route">
-              <div className="route-panel-header">
-                <span className="route-kicker">Official Tour Route</span>
-                <strong>What Your Tour Includes</strong>
-                <p>Complete private day itinerary led by your official local guide</p>
-              </div>
-
-              <ol className="route-places-list">
-                <li>
-                  <span className="route-step">01</span>
-                  <div>
-                    <strong>Jaya Sri Maha Bodhi</strong>
-                    <small>World&apos;s oldest documented planted tree (288 BCE)</small>
-                  </div>
-                </li>
-                <li>
-                  <span className="route-step">02</span>
-                  <div>
-                    <strong>Ruwanweli Seya &amp; Stupas</strong>
-                    <small>Great stupa, Thuparamaya &amp; elephant stone wall</small>
-                  </div>
-                </li>
-                <li>
-                  <span className="route-step">03</span>
-                  <div>
-                    <strong>Jetavanaramaya &amp; Museum</strong>
-                    <small>Massive brick wonder &amp; archaeological artifacts</small>
-                  </div>
-                </li>
-                <li>
-                  <span className="route-step">04</span>
-                  <div>
-                    <strong>Isurumuniya Rock Temple</strong>
-                    <small>Celebrated stone carvings, lotus pond &amp; cliff views</small>
-                  </div>
-                </li>
-                <li>
-                  <span className="route-step">05</span>
-                  <div>
-                    <strong>Royal Gardens &amp; Alms Hall</strong>
-                    <small>Ranmasu Uyana baths &amp; monolithic rice canoe</small>
-                  </div>
-                </li>
-                <li>
-                  <span className="route-step">06</span>
-                  <div>
-                    <strong>Vessagiriya Monastery</strong>
-                    <small>Ancient cave hermitages &amp; early Brahmi inscriptions</small>
-                  </div>
-                </li>
-              </ol>
-
-              <div className="route-panel-footer">
-                <span>✦ Includes personal commentary on history, Buddhism, culture &amp; traditions</span>
-              </div>
-            </aside>
+            <div className="hero-trust-line" aria-label="Tour highlights">
+              <span>Official local guide</span>
+              <span>Private pace</span>
+              <span>English speaking</span>
+            </div>
           </div>
         </div>
 
-        <div className="shell home-hero-foot">
-          <div><strong>Oldest Bodhi Tree</strong><span>Documented human history</span></div>
-          <div><strong>Ruwanweliseya &amp; Stupas</strong><span>Complete sacred circuit</span></div>
-          <div><strong>Official Guide</strong><span>Certified &amp; English speaking</span></div>
-          <div className="hero-coordinate">08.3114° N · 80.4037° E · Sri Lanka</div>
+        <div className="hero-scroll-cue" aria-hidden="true">
+          <span /> Scroll to explore
         </div>
       </section>
 
-      {/* 2. Guide's Personal Welcome & Philosophy */}
+      {/* 2. A scannable overview before the longer story */}
+      <section id="tour-overview" className="tour-overview-section">
+        <div className="shell tour-overview-heading">
+          <div>
+            <p className="eyebrow"><span />Your Ancient City tour</p>
+            <h2>One thoughtful day.<br /><em>Six remarkable places.</em></h2>
+          </div>
+          <div className="tour-overview-intro">
+            <p>A complete private route through Anuradhapura&apos;s sacred monuments, royal landscapes, museum, and peaceful monastery ruins.</p>
+            <a href="#sacred-itinerary">Explore every stop <span>↓</span></a>
+          </div>
+        </div>
+
+        <ol className="shell tour-overview-list">
+          {sacredPlacesList.map((place) => (
+            <li key={place.number}>
+              <a href={`#place-${place.number}`}>
+                <span>{place.number}</span>
+                <strong>{place.name}</strong>
+                <small>{place.subhead.split("·")[0]}</small>
+                <b aria-hidden="true">↘</b>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* 3. Guide's Personal Welcome & Philosophy */}
       <section className="section guide-welcome-section">
         <div className="shell welcome-grid">
           <div>
@@ -244,7 +213,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. Detailed 6 Sacred Places Itinerary */}
+      {/* 4. Detailed 6 Sacred Places Itinerary */}
       <section id="sacred-itinerary" className="section sacred-itinerary-section">
         <div className="shell">
           <div className="itinerary-header">
@@ -259,7 +228,7 @@ export default function HomePage() {
 
           <div className="editorial-places-grid">
             {sacredPlacesList.map((place) => (
-              <article className="editorial-place-card" key={place.number}>
+              <article id={`place-${place.number}`} className="editorial-place-card" key={place.number}>
                 <div className="place-image-frame">
                   <Image src={place.image} alt={place.alt} fill sizes="(max-width: 768px) 100vw, 50vw" />
                   <span className="place-badge-num">{place.number}</span>
@@ -289,7 +258,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Genuine Guest Experiences */}
+      {/* 5. Genuine Guest Experiences */}
       <section className="section reviews-section">
         <div className="shell">
           <div className="section-head-simple">
@@ -313,7 +282,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Website Directory */}
+      {/* 6. Website Directory */}
       <section className="section page-directory" aria-labelledby="page-directory-title">
         <div className="shell">
           <div className="page-directory-heading">
@@ -344,5 +313,3 @@ export default function HomePage() {
     </main>
   );
 }
-
-
