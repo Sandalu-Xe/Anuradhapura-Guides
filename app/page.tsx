@@ -90,10 +90,10 @@ const pageDirectory = [
   {
     href: "/stay",
     number: "02",
-    title: "Stay",
-    copy: "Handpicked hotels and heritage villas ideal for dawn visits and peaceful evenings.",
-    image: "/places/isurumuniya.jpg",
-    imageAlt: "Isurumuniya rock temple landscape",
+    title: "Stay & Green Village",
+    copy: "Discover Green Village—our peaceful family homestay—alongside handpicked boutique bases.",
+    image: "/green-village/homestay-garden.avif",
+    imageAlt: "Green Village homestay garden in Anuradhapura",
   },
   {
     href: "/packages",

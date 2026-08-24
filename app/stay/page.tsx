@@ -1,11 +1,468 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { CtaStrip } from "../_components/cta-strip";
-import { PageHero } from "../_components/page-hero";
+import { greenVillageHomestay } from "../_data/site";
 
-export const metadata: Metadata = { title: "Where to Stay", description: "Choose the right Anuradhapura base for heritage visits, boutique calm, or a Wilpattu safari." };
-const stayTypes = [{ number: "01", title: "Heritage comfort", copy: "Full-service hotels close to the sacred city, ideal for a smooth first visit and early starts.", best: "First-time visitors & families" }, { number: "02", title: "Boutique calm", copy: "Small, design-led stays with thoughtful hosts, garden settings, and a quieter atmosphere.", best: "Couples & slow travellers" }, { number: "03", title: "Wild-edge retreat", copy: "Nature lodges toward Wilpattu for dawn safaris, forest evenings, and star-filled skies.", best: "Wildlife journeys & two-night stays" }];
+export const metadata: Metadata = {
+  title: "Where to Stay | Green Village Homestay Anuradhapura",
+  description:
+    "Stay with your guide Gunarathna at Green Village Homestay in Thalawa, Anuradhapura. Private AC guest room, tranquil garden veranda, authentic Sri Lankan home-cooked meals, and 4.97★ Airbnb hospitality.",
+};
+
+const whyStayReasons = [
+  {
+    number: "01",
+    title: "Stay With Your Licensed Guide",
+    copy: "Begin your ancient city tour effortlessly from the homestay. Gunarathna plans your departure times around morning light and quiet moments.",
+    icon: "🧭",
+  },
+  {
+    number: "02",
+    title: "Authentic Home-Cooked Meals",
+    copy: "Taste real Sri Lankan cuisine prepared in the family kitchen with fresh local vegetables, spices, and tea on the breezy garden veranda.",
+    icon: "🍲",
+  },
+  {
+    number: "03",
+    title: "Quiet Country Rest Away from Noise",
+    copy: "Located in Thalawa (just 15–20 minutes from sacred sites), wake to birdsong, coconut palms, and peaceful village breezes instead of city traffic.",
+    icon: "🌴",
+  },
+];
+
+const roomFeatures = [
+  {
+    title: "Up to 4 Guests",
+    detail: "1 King bed + 1 Double bed in a private spacious room",
+    icon: "🛏️",
+  },
+  {
+    title: "Air Conditioning",
+    detail: "Modern AC and quiet ceiling fan for cool rest",
+    icon: "❄️",
+  },
+  {
+    title: "Private Ensuite Bath",
+    detail: "Private bathroom with hot water, shower, and towels",
+    icon: "🚿",
+  },
+  {
+    title: "Garden & Veranda",
+    detail: "Shaded outdoor seating surrounded by lush palms",
+    icon: "🌿",
+  },
+  {
+    title: "Home-Cooked Dinners",
+    detail: "Authentic Sri Lankan breakfast & dinner options",
+    icon: "🍛",
+  },
+  {
+    title: "Free Private Parking",
+    detail: "Convenient parking for cars, vans, or tuk-tuks",
+    icon: "🚗",
+  },
+];
+
+const guestReviews = [
+  {
+    quote:
+      "Staying with Gunarathna and his family was the highlight of our trip to Sri Lanka. The food was the best we had, the room was clean and air-conditioned, and his tour of Anuradhapura was unforgettable.",
+    author: "Emma & David",
+    country: "United Kingdom",
+    rating: "★★★★★",
+  },
+  {
+    quote:
+      "Gunarathna is an incredible host and English teacher. He explained the history and Buddhist culture with such care. The homestay is peaceful, surrounded by green trees, and feels like home.",
+    author: "Marc & Sophie",
+    country: "France",
+    rating: "★★★★★",
+  },
+  {
+    quote:
+      "A genuine cultural experience. Delicious home cooking, private bathroom, very comfortable beds, and genuine warmth. Highly recommended to anyone visiting Anuradhapura!",
+    author: "Lukas K.",
+    country: "Germany",
+    rating: "★★★★★",
+  },
+];
 
 export default function StayPage() {
-  return <main><PageHero eyebrow="Rest close to the story" title="Sleep well." italic="Start early." copy="The right base can transform the journey. We help you choose for location, atmosphere, and the experience you want—not the loudest listing." image="/places/isurumuniya.jpg" imageAlt="Rock temple landscape near Anuradhapura" /><section className="section stay-options"><div className="shell"><div className="stay-intro"><h2>Three ways to stay<br /><em>in the cultural north.</em></h2><p>We do not take commission for recommendations. We simply match the rhythm of your itinerary with the stay that makes it easier.</p></div><div className="stay-grid">{stayTypes.map((stay) => <article key={stay.number}><span>{stay.number}</span><h3>{stay.title}</h3><p>{stay.copy}</p><small>Best for</small><strong>{stay.best}</strong></article>)}</div></div></section><section className="stay-feature"><div className="shell stay-feature-grid"><div className="stay-feature-image"><Image src="/places/wilpattu.jpg" alt="Forest road through Wilpattu National Park" fill sizes="(max-width: 800px) 100vw, 55vw" /></div><div><p className="eyebrow eyebrow-light"><span />A two-base journey</p><h2>Ancient city.<br /><em>Wild morning.</em></h2><p>Spend the first night close to Anuradhapura, then move toward Wilpattu for a quieter evening and dawn safari. We help make the transfer feel like part of the journey.</p><a className="button button-gold" href="/contact?journey=heritage-wild-north">Plan heritage & wildlife <span>↗</span></a></div></div></section><CtaStrip /></main>;
+  return (
+    <main className="stay-page-container">
+      {/* 1. Crystal Clear Split Hero */}
+      <section className="stay-editorial-hero">
+        <div className="shell stay-hero-grid">
+          {/* Left Column: Clear Text & Context */}
+          <div className="stay-hero-text-col">
+            <div className="stay-hero-kicker">
+              <span className="stay-kicker-dot" />
+              <span>Official Homestay · Thalawa, Anuradhapura</span>
+            </div>
+
+            <h1 className="stay-hero-main-title">
+              Stay with your guide at <em>Green Village.</em>
+            </h1>
+
+            <p className="stay-hero-summary">
+              When visiting Anuradhapura, stay directly at our peaceful family homestay in <strong>Thalawa</strong>. Hosted by licensed guide and English teacher <strong>Gunarathna</strong>, you&apos;ll enjoy comfortable air-conditioned rooms, delicious home-cooked meals, and unhurried sacred city journeys.
+            </p>
+
+            <div className="stay-hero-badges-row">
+              <div className="stay-rating-badge">
+                <span className="stay-badge-stars">★★★★★</span>
+                <strong>4.97 on Airbnb</strong>
+                <small>Highest-reviewed local host</small>
+              </div>
+              <div className="stay-info-pill">
+                <span>📍 Thalawa, Sri Lanka</span>
+                <small>15–20 mins to Sacred City</small>
+              </div>
+            </div>
+
+            <div className="stay-hero-actions">
+              <a
+                className="button button-gold stay-main-cta"
+                href={greenVillageHomestay.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit Green Village Website <span>↗</span>
+              </a>
+
+              <a
+                className="button button-airbnb stay-airbnb-cta"
+                href={greenVillageHomestay.airbnbUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book on Airbnb <span>↗</span>
+              </a>
+
+              <a
+                className="button button-subtle-stay"
+                href={greenVillageHomestay.stayUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Rooms &amp; Rates <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column: Crystal Clear High-Res Photo Showcase */}
+          <div className="stay-hero-visual-col">
+            <div className="stay-hero-main-frame">
+              <Image
+                src="/green-village/homestay-garden.avif"
+                alt="Green Village guesthouse in bright tropical garden in Thalawa, Anuradhapura"
+                fill
+                priority
+                sizes="(max-width: 900px) 100vw, 50vw"
+                className="stay-hero-img"
+              />
+              <div className="stay-photo-tag">
+                <Image
+                  src="/green-village/green-village-logo.png"
+                  alt="Green Village logo"
+                  width={24}
+                  height={24}
+                  className="stay-photo-logo"
+                />
+                <span>Green Village Homestay</span>
+              </div>
+            </div>
+
+            {/* Sub photos strip */}
+            <div className="stay-hero-thumb-row">
+              <div className="stay-thumb-item">
+                <Image
+                  src="/green-village/family-guest-welcome.webp"
+                  alt="Gunarathna welcoming guests"
+                  fill
+                  sizes="(max-width: 900px) 33vw, 16vw"
+                />
+                <span>Warm Family Host</span>
+              </div>
+              <div className="stay-thumb-item">
+                <Image
+                  src="/green-village/homestay-veranda.avif"
+                  alt="Veranda seating at Green Village"
+                  fill
+                  sizes="(max-width: 900px) 33vw, 16vw"
+                />
+                <span>Garden Veranda</span>
+              </div>
+              <div className="stay-thumb-item">
+                <Image
+                  src="/green-village/family-guests-table.avif"
+                  alt="Home-cooked traditional meals"
+                  fill
+                  sizes="(max-width: 900px) 33vw, 16vw"
+                />
+                <span>Home Cooking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Why Stay With Us (Clear Explanation) */}
+      <section className="section stay-why-section">
+        <div className="shell">
+          <div className="stay-section-header">
+            <p className="eyebrow"><span />The Complete Experience</p>
+            <h2>
+              Why stay at Green Village<br />
+              <em>during your Anuradhapura trip?</em>
+            </h2>
+            <p className="stay-section-subtitle">
+              Instead of an impersonal commercial hotel, Green Village connects your sacred city tours with genuine family warmth and village serenity.
+            </p>
+          </div>
+
+          <div className="stay-why-grid">
+            {whyStayReasons.map((item) => (
+              <div className="stay-why-card" key={item.number}>
+                <div className="stay-why-top">
+                  <span className="stay-why-icon">{item.icon}</span>
+                  <span className="stay-why-num">{item.number}</span>
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Host Story & Kindness */}
+      <section className="section stay-host-section">
+        <div className="shell stay-host-grid">
+          <div className="stay-host-media">
+            <div className="stay-host-image-frame">
+              <Image
+                src="/green-village/family-guest-welcome.webp"
+                alt="Gunarathna welcoming travellers to Green Village"
+                fill
+                sizes="(max-width: 860px) 100vw, 45vw"
+              />
+            </div>
+            <div className="stay-host-stats-chip">
+              <strong>20+ Years</strong>
+              <span>Hospitality &amp; Guiding</span>
+            </div>
+          </div>
+
+          <div className="stay-host-content">
+            <p className="eyebrow"><span />Meet Your Host &amp; Guide</p>
+            <h2>
+              “I guide because every traveller<br />
+              <em>deserves to feel this place.”</em>
+            </h2>
+
+            <p className="stay-host-lead-p">
+              <strong>Gunarathna</strong> is a local English teacher, community volunteer, and Airbnb&apos;s highest-reviewed tour guide in Anuradhapura.
+            </p>
+
+            <p className="stay-host-text">
+              For over two decades, he has welcomed travellers from around the world into his home. With fluent English, deep Buddhist knowledge, and natural warmth, Gunarathna ensures your time in the cultural triangle feels personal, relaxed, and deeply meaningful.
+            </p>
+
+            <div className="stay-host-buttons">
+              <a
+                className="button button-gold"
+                href={greenVillageHomestay.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn More on Green Village Website <span>↗</span>
+              </a>
+              <a
+                className="button button-dark"
+                href={greenVillageHomestay.airbnbUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read 100+ Reviews on Airbnb <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Room Amenities Grid */}
+      <section className="section stay-room-section">
+        <div className="shell">
+          <div className="stay-section-header">
+            <p className="eyebrow"><span />Guesthouse Amenities</p>
+            <h2>
+              Private, comfortable<br />
+              <em>and thoughtfully equipped.</em>
+            </h2>
+            <p className="stay-section-subtitle">
+              Your private guesthouse accommodation provides everything you need to recharge after exploring ancient stone ruins in the tropical sun.
+            </p>
+          </div>
+
+          <div className="stay-room-grid">
+            {roomFeatures.map((feat, idx) => (
+              <div className="stay-room-card" key={idx}>
+                <span className="stay-room-icon">{feat.icon}</span>
+                <h3>{feat.title}</h3>
+                <p>{feat.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Real Moments Gallery */}
+      <section className="section stay-gallery-section">
+        <div className="shell">
+          <div className="stay-gallery-top">
+            <div>
+              <p className="eyebrow"><span />Photo Gallery</p>
+              <h2>
+                Moments at <em>Green Village</em>
+              </h2>
+            </div>
+            <a
+              className="button button-subtle-stay"
+              href={`${greenVillageHomestay.websiteUrl}#gallery`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View All Photos on Green Village <span>↗</span>
+            </a>
+          </div>
+
+          <div className="stay-photo-mosaic">
+            <div className="stay-photo-card stay-photo-card-large">
+              <Image
+                src="/green-village/homestay-garden.avif"
+                alt="Green Village guesthouse front and garden"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <span className="stay-photo-caption">Guesthouse &amp; Tropical Garden</span>
+            </div>
+
+            <div className="stay-photo-card">
+              <Image
+                src="/green-village/homestay-veranda.avif"
+                alt="Garden veranda chairs"
+                fill
+                sizes="(max-width: 768px) 100vw, 25vw"
+              />
+              <span className="stay-photo-caption">Quiet Veranda</span>
+            </div>
+
+            <div className="stay-photo-card">
+              <Image
+                src="/green-village/family-guests-table.avif"
+                alt="Dining with guests"
+                fill
+                sizes="(max-width: 768px) 100vw, 25vw"
+              />
+              <span className="stay-photo-caption">Home-Cooked Dinners</span>
+            </div>
+
+            <div className="stay-photo-card">
+              <Image
+                src="/green-village/river-nature.avif"
+                alt="Peaceful village waterways"
+                fill
+                sizes="(max-width: 768px) 100vw, 25vw"
+              />
+              <span className="stay-photo-caption">Village Nature</span>
+            </div>
+
+            <div className="stay-photo-card">
+              <Image
+                src="/green-village/gunarathna-guide.avif"
+                alt="Touring with Gunarathna"
+                fill
+                sizes="(max-width: 768px) 100vw, 25vw"
+              />
+              <span className="stay-photo-caption">Private Guided Tours</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Guest Reviews */}
+      <section className="section stay-reviews-section">
+        <div className="shell">
+          <div className="stay-section-header">
+            <p className="eyebrow"><span />Airbnb Guest Feedback</p>
+            <h2>
+              What travellers say<br />
+              <em>about their stay.</em>
+            </h2>
+          </div>
+
+          <div className="stay-reviews-grid">
+            {guestReviews.map((item, idx) => (
+              <div className="stay-review-card" key={idx}>
+                <div className="stay-review-stars">{item.rating}</div>
+                <blockquote className="stay-review-quote">“{item.quote}”</blockquote>
+                <div className="stay-review-author">
+                  <strong>{item.author}</strong>
+                  <span>{item.country}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Dedicated Booking Callout */}
+      <section className="stay-direct-banner">
+        <div className="shell stay-direct-banner-grid">
+          <div className="stay-banner-copy">
+            <p className="eyebrow eyebrow-light"><span />Reserve Your Stay</p>
+            <h2>
+              Ready to visit<br />
+              <em>Green Village Homestay?</em>
+            </h2>
+            <p>
+              Check availability directly on Airbnb or visit the dedicated Green Village website to plan your dates, meals, and private Anuradhapura tour with Gunarathna.
+            </p>
+          </div>
+
+          <div className="stay-banner-actions-card">
+            <a
+              className="button button-gold stay-banner-btn"
+              href={greenVillageHomestay.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit Green Village Website <span>↗</span>
+            </a>
+
+            <a
+              className="button button-outline stay-banner-btn"
+              href={greenVillageHomestay.airbnbUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book on Airbnb (4.97 ★) <span>↗</span>
+            </a>
+
+            <a
+              className="stay-banner-link"
+              href={greenVillageHomestay.stayUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore Room Amenities &amp; Guide at green-village-six.vercel.app ➔
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <CtaStrip />
+    </main>
+  );
 }

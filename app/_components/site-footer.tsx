@@ -16,6 +16,8 @@ export function SiteFooter() {
         <div className="footer-links">
           <span>Start here</span>
           <a href="/contact">Plan your tour</a>
+          <a href="/stay">Where to Stay</a>
+          <a href="https://green-village-six.vercel.app/" target="_blank" rel="noopener noreferrer">Green Village Homestay ↗</a>
           <a href="mailto:hello@anuradhapuraguidance.com">Email us</a>
           <p>Anuradhapura, Sri Lanka</p>
         </div>

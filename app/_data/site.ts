@@ -30,6 +30,29 @@ export const navigation = [
   { href: "/contact", label: "Contact Us" },
 ];
 
+export const greenVillageHomestay = {
+  name: "Green Village Anuradhapura",
+  tagline: "A peaceful family homestay & local gateway to the ancient capital",
+  host: "Gunarathna (Local teacher & highest-reviewed Airbnb guide)",
+  rating: "4.97",
+  reviewsCount: "20+ years experience",
+  websiteUrl: "https://green-village-six.vercel.app/",
+  stayUrl: "https://green-village-six.vercel.app/stay",
+  airbnbUrl: "https://www.airbnb.com/rooms/13886001",
+  location: "Thalawa, near Anuradhapura, Sri Lanka",
+  description:
+    "Rest in a private, air-conditioned guest room with your own bathroom, peaceful garden, and veranda. Join the family kitchen for authentic Sri Lankan home-cooked meals, and experience the sacred city with Gunarathna's personal guidance.",
+  amenities: [
+    "Up to 4 guests (2 beds)",
+    "Private ensuite bathroom",
+    "Air conditioning",
+    "Serene garden & veranda",
+    "Home-cooked traditional meals",
+    "Free private parking",
+  ],
+};
+
+
 export const places: Place[] = [
   {
     slug: "ruwanweliseya",
