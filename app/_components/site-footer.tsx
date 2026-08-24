@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { navigation } from "../_data/site";
+import { FooterQuickMenu } from "./footer-quick-menu";
 
 export function SiteFooter() {
   return (
@@ -10,33 +10,8 @@ export function SiteFooter() {
           <p>Private, unhurried journeys through Sri Lanka&apos;s first kingdom.</p>
         </div>
 
-        {/* Quick Menu (Explore + Start here side-by-side) */}
-        <div className="footer-quick-menu">
-          <div className="footer-links">
-            <span>Explore</span>
-            {navigation.slice(0, 4).map((item) => (
-              <a href={item.href} key={item.href}>
-                {item.label}
-              </a>
-            ))}
-          </div>
-
-          <div className="footer-links">
-            <span>Start here</span>
-            <a href="/contact">Plan your tour</a>
-            <a href="/stay">Where to Stay</a>
-            <a
-              href="https://green-village-six.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-ext-link"
-            >
-              Green Village Homestay <span className="footer-ext-arrow">↗</span>
-            </a>
-            <a href="mailto:hello@anuradhapuraguidance.com">Email us</a>
-            <p className="footer-location-tag">📍 Anuradhapura, Sri Lanka</p>
-          </div>
-        </div>
+        {/* Interactive Dropdown Quick Menu */}
+        <FooterQuickMenu />
 
         <div className="footer-callout">
           <span>Travel slowly</span>
