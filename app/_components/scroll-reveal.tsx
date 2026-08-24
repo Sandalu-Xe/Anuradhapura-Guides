@@ -42,6 +42,15 @@ export function ScrollReveal() {
       ".booking-form-wrapper",
       ".visit-card",
       ".next-place",
+      ".stay-section-header",
+      ".stay-why-card",
+      ".stay-host-media",
+      ".stay-host-content",
+      ".stay-room-card",
+      ".stay-gallery-top",
+      ".stay-photo-card",
+      ".stay-review-card",
+      ".stay-direct-banner-grid",
     ];
 
     const elements = document.querySelectorAll<HTMLElement>(targetSelectors.join(", "));
@@ -62,6 +71,10 @@ export function ScrollReveal() {
           parentGrid.classList.contains("places-grid") ||
           parentGrid.classList.contains("package-grid") ||
           parentGrid.classList.contains("stay-grid") ||
+          parentGrid.classList.contains("stay-why-grid") ||
+          parentGrid.classList.contains("stay-room-grid") ||
+          parentGrid.classList.contains("stay-photo-mosaic") ||
+          parentGrid.classList.contains("stay-reviews-grid") ||
           parentGrid.classList.contains("page-directory-grid") ||
           parentGrid.classList.contains("package-result-grid") ||
           parentGrid.classList.contains("reviews-grid"))

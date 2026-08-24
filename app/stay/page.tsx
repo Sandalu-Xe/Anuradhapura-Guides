@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CtaStrip } from "../_components/cta-strip";
 import { greenVillageHomestay } from "../_data/site";
+import { StayHeroInteractive } from "./stay-hero-interactive";
 
 export const metadata: Metadata = {
   title: "Where to Stay | Green Village Homestay Anuradhapura",
@@ -90,122 +91,8 @@ const guestReviews = [
 export default function StayPage() {
   return (
     <main className="stay-page-container">
-      {/* 1. Crystal Clear Split Hero */}
-      <section className="stay-editorial-hero">
-        <div className="shell stay-hero-grid">
-          {/* Left Column: Clear Text & Context */}
-          <div className="stay-hero-text-col">
-            <div className="stay-hero-kicker">
-              <span className="stay-kicker-dot" />
-              <span>Official Homestay · Thalawa, Anuradhapura</span>
-            </div>
-
-            <h1 className="stay-hero-main-title">
-              Stay with your guide at <em>Green Village.</em>
-            </h1>
-
-            <p className="stay-hero-summary">
-              When visiting Anuradhapura, stay directly at our peaceful family homestay in <strong>Thalawa</strong>. Hosted by licensed guide and English teacher <strong>Gunarathna</strong>, you&apos;ll enjoy comfortable air-conditioned rooms, delicious home-cooked meals, and unhurried sacred city journeys.
-            </p>
-
-            <div className="stay-hero-badges-row">
-              <div className="stay-rating-badge">
-                <span className="stay-badge-stars">★★★★★</span>
-                <strong>4.97 on Airbnb</strong>
-                <small>Highest-reviewed local host</small>
-              </div>
-              <div className="stay-info-pill">
-                <span>📍 Thalawa, Sri Lanka</span>
-                <small>15–20 mins to Sacred City</small>
-              </div>
-            </div>
-
-            <div className="stay-hero-actions">
-              <a
-                className="button button-gold stay-main-cta"
-                href={greenVillageHomestay.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit Green Village Website <span>↗</span>
-              </a>
-
-              <a
-                className="button button-airbnb stay-airbnb-cta"
-                href={greenVillageHomestay.airbnbUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book on Airbnb <span>↗</span>
-              </a>
-
-              <a
-                className="button button-subtle-stay"
-                href={greenVillageHomestay.stayUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Rooms &amp; Rates <span>↗</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Right Column: Crystal Clear High-Res Photo Showcase */}
-          <div className="stay-hero-visual-col">
-            <div className="stay-hero-main-frame">
-              <Image
-                src="/green-village/homestay-garden.avif"
-                alt="Green Village guesthouse in bright tropical garden in Thalawa, Anuradhapura"
-                fill
-                priority
-                sizes="(max-width: 900px) 100vw, 50vw"
-                className="stay-hero-img"
-              />
-              <div className="stay-photo-tag">
-                <Image
-                  src="/green-village/green-village-logo.png"
-                  alt="Green Village logo"
-                  width={24}
-                  height={24}
-                  className="stay-photo-logo"
-                />
-                <span>Green Village Homestay</span>
-              </div>
-            </div>
-
-            {/* Sub photos strip */}
-            <div className="stay-hero-thumb-row">
-              <div className="stay-thumb-item">
-                <Image
-                  src="/green-village/family-guest-welcome.webp"
-                  alt="Gunarathna welcoming guests"
-                  fill
-                  sizes="(max-width: 900px) 33vw, 16vw"
-                />
-                <span>Warm Family Host</span>
-              </div>
-              <div className="stay-thumb-item">
-                <Image
-                  src="/green-village/homestay-veranda.avif"
-                  alt="Veranda seating at Green Village"
-                  fill
-                  sizes="(max-width: 900px) 33vw, 16vw"
-                />
-                <span>Garden Veranda</span>
-              </div>
-              <div className="stay-thumb-item">
-                <Image
-                  src="/green-village/family-guests-table.avif"
-                  alt="Home-cooked traditional meals"
-                  fill
-                  sizes="(max-width: 900px) 33vw, 16vw"
-                />
-                <span>Home Cooking</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. Crystal Clear Split Hero with Interactive Gallery & Animations */}
+      <StayHeroInteractive />
 
       {/* 2. Why Stay With Us (Clear Explanation) */}
       <section className="section stay-why-section">
@@ -306,30 +193,28 @@ export default function StayPage() {
           </div>
 
           <div className="stay-room-grid">
-            {roomFeatures.map((feat, idx) => (
-              <div className="stay-room-card" key={idx}>
-                <span className="stay-room-icon">{feat.icon}</span>
-                <h3>{feat.title}</h3>
-                <p>{feat.detail}</p>
+            {roomFeatures.map((amenity) => (
+              <div className="stay-room-card" key={amenity.title}>
+                <span className="stay-room-icon">{amenity.icon}</span>
+                <h3>{amenity.title}</h3>
+                <p>{amenity.detail}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Real Moments Gallery */}
+      {/* 5. Photo Gallery Showcase */}
       <section className="section stay-gallery-section">
         <div className="shell">
           <div className="stay-gallery-top">
             <div>
               <p className="eyebrow"><span />Photo Gallery</p>
-              <h2>
-                Moments at <em>Green Village</em>
-              </h2>
+              <h2>Moments at <em>Green Village</em></h2>
             </div>
             <a
               className="button button-subtle-stay"
-              href={`${greenVillageHomestay.websiteUrl}#gallery`}
+              href={greenVillageHomestay.websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -341,49 +226,45 @@ export default function StayPage() {
             <div className="stay-photo-card stay-photo-card-large">
               <Image
                 src="/green-village/homestay-garden.avif"
-                alt="Green Village guesthouse front and garden"
+                alt="Green Village guesthouse and garden"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 860px) 100vw, 45vw"
               />
               <span className="stay-photo-caption">Guesthouse &amp; Tropical Garden</span>
             </div>
-
             <div className="stay-photo-card">
               <Image
                 src="/green-village/homestay-veranda.avif"
-                alt="Garden veranda chairs"
+                alt="Garden veranda with seating"
                 fill
-                sizes="(max-width: 768px) 100vw, 25vw"
+                sizes="(max-width: 860px) 50vw, 25vw"
               />
               <span className="stay-photo-caption">Quiet Veranda</span>
             </div>
-
             <div className="stay-photo-card">
               <Image
                 src="/green-village/family-guests-table.avif"
                 alt="Dining with guests"
                 fill
-                sizes="(max-width: 768px) 100vw, 25vw"
+                sizes="(max-width: 860px) 50vw, 25vw"
               />
               <span className="stay-photo-caption">Home-Cooked Dinners</span>
             </div>
-
             <div className="stay-photo-card">
               <Image
                 src="/green-village/river-nature.avif"
-                alt="Peaceful village waterways"
+                alt="Lush green nature and river near homestay"
                 fill
-                sizes="(max-width: 768px) 100vw, 25vw"
+                sizes="(max-width: 860px) 50vw, 25vw"
               />
               <span className="stay-photo-caption">Village Nature</span>
             </div>
-
             <div className="stay-photo-card">
               <Image
                 src="/green-village/gunarathna-guide.avif"
-                alt="Touring with Gunarathna"
+                alt="Gunarathna guiding travellers at Anuradhapura stupa"
                 fill
-                sizes="(max-width: 768px) 100vw, 25vw"
+                sizes="(max-width: 860px) 50vw, 25vw"
               />
               <span className="stay-photo-caption">Private Guided Tours</span>
             </div>
@@ -391,25 +272,27 @@ export default function StayPage() {
         </div>
       </section>
 
-      {/* 6. Guest Reviews */}
+      {/* 6. Guest Feedback */}
       <section className="section stay-reviews-section">
         <div className="shell">
           <div className="stay-section-header">
             <p className="eyebrow"><span />Airbnb Guest Feedback</p>
             <h2>
-              What travellers say<br />
-              <em>about their stay.</em>
+              Loved by travellers from<br />
+              <em>around the world.</em>
             </h2>
           </div>
 
           <div className="stay-reviews-grid">
-            {guestReviews.map((item, idx) => (
-              <div className="stay-review-card" key={idx}>
-                <div className="stay-review-stars">{item.rating}</div>
-                <blockquote className="stay-review-quote">“{item.quote}”</blockquote>
+            {guestReviews.map((review) => (
+              <div className="stay-review-card" key={review.author}>
+                <span className="stay-review-stars">{review.rating}</span>
+                <blockquote className="stay-review-quote">
+                  &ldquo;{review.quote}&rdquo;
+                </blockquote>
                 <div className="stay-review-author">
-                  <strong>{item.author}</strong>
-                  <span>{item.country}</span>
+                  <strong>{review.author}</strong>
+                  <span>{review.country}</span>
                 </div>
               </div>
             ))}
@@ -417,11 +300,14 @@ export default function StayPage() {
         </div>
       </section>
 
-      {/* 7. Dedicated Booking Callout */}
+      {/* 7. Direct Reservation CTA */}
       <section className="stay-direct-banner">
         <div className="shell stay-direct-banner-grid">
           <div className="stay-banner-copy">
-            <p className="eyebrow eyebrow-light"><span />Reserve Your Stay</p>
+            <p className="eyebrow" style={{ color: "var(--gold)" }}>
+              <span style={{ background: "var(--gold)" }} />
+              Reserve Your Stay
+            </p>
             <h2>
               Ready to visit<br />
               <em>Green Village Homestay?</em>
@@ -442,7 +328,7 @@ export default function StayPage() {
             </a>
 
             <a
-              className="button button-outline stay-banner-btn"
+              className="button button-dark stay-banner-btn"
               href={greenVillageHomestay.airbnbUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -456,7 +342,7 @@ export default function StayPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Explore Room Amenities &amp; Guide at green-village-six.vercel.app ➔
+              Explore Room Amenities &amp; Guide at green-village-six.vercel.app →
             </a>
           </div>
         </div>
