@@ -124,7 +124,7 @@ export default function HomePage() {
         <div className="shell home-hero-content hero-centered">
           <div className="hero-story-col">
             <p className="eyebrow eyebrow-light hero-eyebrow-center">
-              <span className="eyebrow-line" />Private tours with an official local guide<span className="eyebrow-line" />
+              <span className="eyebrow-line" />Official Local Guide · Private Tours<span className="eyebrow-line" />
             </p>
 
             <h1 className="hero-h1-center">

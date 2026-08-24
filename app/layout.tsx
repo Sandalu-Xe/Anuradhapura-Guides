@@ -1,9 +1,16 @@
+import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { ScrollReveal } from "./_components/scroll-reveal";
 import { SiteFooter } from "./_components/site-footer";
 import { SiteHeader } from "./_components/site-header";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   const incoming = await headers();
@@ -25,8 +32,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={inter.variable}>
+      <body className={inter.className}>
         <ScrollReveal />
         <SiteHeader />
         {children}
