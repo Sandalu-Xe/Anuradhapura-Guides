@@ -71,15 +71,18 @@ export default function BookingForm({ initialInterest = "" }: { initialInterest?
             <label htmlFor="interest">Journey Interest</label>
             <select id="interest" name="interest" defaultValue={initialInterest}>
               <option value="">Help me choose</option>
-              <option value="sacred-city-essentials">Sacred City Essentials</option>
-              <option value="ancient-city-unhurried">Ancient City Unhurried</option>
-              <option value="heritage-wild-north">Heritage &amp; Wild North</option>
-              <option value="ruwanweliseya">Ruwanweliseya</option>
+              <option value="ancient-anuradhapura">Ancient Places Anuradhapura ($13/person · 8:30 AM–2:30 PM)</option>
+              <option value="ancient-mihintale">Ancient Place Mihintale ($13/person · 8:30 AM–2:30 PM)</option>
+              <option value="wilpattu-tourism">Wilpattu Tourism Safari ($30/person + $180 Jeep · 8:30 AM–2:30 PM)</option>
+              <option value="custom">Custom Private Route</option>
+              <option value="ruwanweliseya">Ruwanweliseya Stupa</option>
+              <option value="isurumuniya">Isurumuniya Rock Temple</option>
+              <option value="jetavanaramaya">Jetavanaramaya Stupa</option>
               <option value="jaya-sri-maha-bodhi">Jaya Sri Maha Bodhi</option>
-              <option value="jetavanaramaya">Jetavanaramaya</option>
-              <option value="isurumuniya">Isurumuniya</option>
-              <option value="samadhi-buddha">Samadhi Buddha</option>
-              <option value="mihintale">Mihintale</option>
+              <option value="abhayagiri-vihara">Abhayagiri Vihara</option>
+              <option value="thuparamaya">Thuparamaya Stupa</option>
+              <option value="lankarama">Lankarama Stupa</option>
+              <option value="mihintale">Mihintale Sacred Hill</option>
               <option value="wilpattu">Wilpattu National Park</option>
             </select>
           </div>

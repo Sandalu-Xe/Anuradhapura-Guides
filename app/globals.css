@@ -415,14 +415,16 @@ h1 em, h2 em { color: var(--gold-dark); font-weight: 400; }
 .explorer-package-body h3 { margin: 22px 0 13px; font-family: Georgia, serif; font-size: 32px; font-weight: 400; line-height: 1.06; letter-spacing: -.03em; }
 .explorer-package-body > p { margin: 0 0 20px; color: var(--muted); font-size: 11px; line-height: 1.65; }
 .explorer-package-body ul { margin: 0; padding: 0; list-style: none; }
-.explorer-package-body li { padding: 11px 0; border-top: 1px solid var(--line); color: #536158; font-size: 9px; }
-.explorer-package-body li::before { content: "✓"; margin-right: 9px; color: var(--gold-dark); }
-.explorer-package-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; margin-top: auto; padding-top: 23px; border-top: 1px solid var(--line); }
-.explorer-package-foot > div { display: grid; grid-template-columns: auto auto; align-items: baseline; column-gap: 7px; }
-.explorer-package-foot small { grid-column: 1 / -1; color: var(--muted); font-size: 7px; letter-spacing: .1em; text-transform: uppercase; }
-.explorer-package-foot strong { font-family: Georgia, serif; font-size: 27px; font-weight: 400; }
-.explorer-package-foot > div span { color: var(--muted); font-size: 7px; text-transform: uppercase; }
-.explorer-package-foot > a { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--ink); font-size: 8px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+.explorer-package-body li { padding: 11px 0; border-top: 1px solid var(--line); color: #536158; font-size: 9.5px; }
+.explorer-package-body li::before { content: "✓"; margin-right: 9px; color: var(--gold-dark); font-weight: bold; }
+.explorer-package-body li.package-inc-excluded { color: #828e86; }
+.explorer-package-body li.package-inc-excluded::before { content: "✕"; color: #b86262; font-weight: bold; }
+.explorer-package-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; margin-top: auto; padding-top: 23px; border-top: 1px solid var(--line); }
+.explorer-package-foot > div { display: flex; flex-direction: column; }
+.explorer-package-foot small { color: var(--muted); font-size: 7.5px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 2px; }
+.explorer-package-foot strong { font-family: Georgia, serif; font-size: 27px; font-weight: 400; line-height: 1; }
+.explorer-package-foot > div span { color: var(--muted); font-size: 8px; text-transform: uppercase; margin-top: 4px; }
+.explorer-package-foot > a { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--ink); font-size: 8px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; white-space: nowrap; }
 .package-empty-state { min-height: 440px; display: grid; place-content: center; justify-items: center; padding: 40px; border: 1px solid var(--line); background: #fffdf9; text-align: center; }
 .package-empty-state > span { color: var(--gold-dark); font-size: 8px; letter-spacing: .13em; text-transform: uppercase; }
 .package-empty-state h3 { margin: 16px 0 8px; font-family: Georgia, serif; font-size: 34px; font-weight: 400; }

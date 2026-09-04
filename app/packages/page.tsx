@@ -3,9 +3,9 @@ import { CtaStrip } from "../_components/cta-strip";
 import { PackageExplorer } from "./package-explorer";
 
 export const metadata: Metadata = {
-  title: "Tour Package Explorer",
+  title: "Tour Packages & Guided Experiences",
   description:
-    "Browse private tour packages for Anuradhapura, Ruwanweliseya, Mihintale, Isurumuniya, and Wilpattu National Park.",
+    "Explore private guided tour packages for Ancient Anuradhapura, Mihintale, and Wilpattu National Park.",
 };
 
 export default function PackagesPage() {
@@ -16,11 +16,11 @@ export default function PackagesPage() {
           <div>
             <p className="eyebrow eyebrow-light"><span />Build your northern journey</p>
             <h1>Find a package<br /><em>for every place.</em></h1>
-            <p>Browse focused visits, full heritage days, wildlife safaris, and combined journeys. Every package is private and can be adjusted to your group.</p>
+            <p>Browse focused ancient city tours, sacred hill pilgrimages, and Wilpattu wildlife safaris. Every tour is private and guided by an official local expert.</p>
           </div>
           <div className="package-app-stats" aria-label="Package explorer summary">
-            <div><strong>10</strong><span>Starting packages</span></div>
-            <div><strong>5</strong><span>Destinations</span></div>
+            <div><strong>3</strong><span>Curated packages</span></div>
+            <div><strong>3</strong><span>Destinations</span></div>
             <div><strong>Private</strong><span>Flexible planning</span></div>
           </div>
         </div>

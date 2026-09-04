@@ -5,57 +5,66 @@ import { reviews } from "./_data/site";
 const sacredPlacesList = [
   {
     number: "01",
-    name: "Jaya Sri Maha Bodhi",
-    subhead: "The World's Oldest Documented Tree · Planted 288 BCE",
-    image: "/places/sri-maha-bodhi.jpg",
-    alt: "Sacred Jaya Sri Maha Bodhi tree in Anuradhapura",
-    story: "A sacred sapling brought from the original Enlightenment tree in Bodh Gaya by Sanghamitta Theri. It has been tended with unbroken reverence for over 2,300 years.",
-    localNote: "We arrive during the gentle morning puja, when the air is cool and fragrant with jasmine flower offerings.",
-  },
-  {
-    number: "02",
-    name: "Ruwanweli Seya & Sacred Stupas",
-    subhead: "The Great White Dome of King Dutugemunu · 140 BCE",
+    name: "Ruwanweli Seya",
+    subhead: "The Great White Dome of King Dutugemunu · 2nd Century BCE",
     image: "/places/ruwanweliseya.jpg",
     alt: "Ruwanweliseya stupa dome in Anuradhapura",
-    story: "Enshrining the largest collection of Buddha relics in Sri Lanka, surrounded by a wall of 344 sculpted elephants. We also explore Thuparamaya, the island's first stupa, and Mirisawetiya.",
+    story: "One of the most sacred stupas in Sri Lanka, built by King Dutugemunu in the 2nd century BCE. It is a massive white dagoba (stupa) with an elephant wall around its base, believed to enshrine relics of the Buddha.",
     localNote: "Walking barefoot clockwise on the sun-warmed stone terrace while pilgrims chant in unison is an unforgettable memory.",
   },
   {
-    number: "03",
-    name: "Jetavanaramaya & Museum",
-    subhead: "Ancient Engineering Marvel & Monastic Relics · 3rd Century CE",
-    image: "/places/jetavanaramaya.jpg",
-    alt: "Jetavanaramaya brick stupa and museum",
-    story: "Once the third tallest structure in the ancient world, containing over 90 million baked clay bricks. The on-site museum reveals ancient Roman coins, intaglios, and monastery treasures.",
-    localNote: "I will explain how ancient engineers designed foundations capable of bearing this colossal brick weight on sandy soil.",
-  },
-  {
-    number: "04",
+    number: "02",
     name: "Isurumuniya Rock Temple",
     subhead: "Granite Cliff Sanctuary & Famous Lovers Relief · 3rd Century BCE",
     image: "/places/isurumuniya.jpg",
     alt: "Isurumuniya rock temple and pond in Anuradhapura",
-    story: "Perched on a granite cliff beside Tissa Wewa reservoir, famous for exquisite 5th-century stone carvings including the celebrated 'Isurumuniya Lovers' and royal court reliefs.",
+    story: "A rock temple carved into granite, famous for its stone carvings, especially the 'Isurumuniya Lovers' carving. It was built during the reign of King Devanampiya Tissa in the 3rd century BCE, near a small pond and rock formations.",
     localNote: "Climb the gentle rock steps to the upper terrace for a panoramic view across the water and coconut palms.",
   },
   {
+    number: "03",
+    name: "Jetavanaramaya Stupa",
+    subhead: "Ancient Engineering Marvel & Massive Brick Stupa · 3rd Century CE",
+    image: "/places/jetavanaramaya.jpg",
+    alt: "Jetavanaramaya brick stupa in Anuradhapura",
+    story: "Once one of the tallest structures in the ancient world, this massive brick stupa was built by King Mahasena in the 3rd century CE. It is one of the largest brick structures on Earth.",
+    localNote: "I will explain how ancient engineers designed foundations capable of bearing this colossal brick weight on sandy soil.",
+  },
+  {
+    number: "04",
+    name: "Jaya Sri Maha Bodhi",
+    subhead: "The World's Oldest Documented Tree · Planted 288 BCE",
+    image: "/places/sri-maha-bodhi.jpg",
+    alt: "Sacred Jaya Sri Maha Bodhi tree in Anuradhapura",
+    story: "A sacred fig tree grown from a cutting of the original Bodhi tree in Bodh Gaya, India, under which the Buddha attained enlightenment. Planted in 288 BCE, it is considered the oldest documented tree in the world with a known planting date.",
+    localNote: "We arrive during the gentle morning puja, when the air is cool and fragrant with jasmine flower offerings.",
+  },
+  {
     number: "05",
-    name: "Royal Pleasure Gardens & Alms Hall",
-    subhead: "Ranmasu Uyana Water Pavilions & Mahapali Rice Canoe",
-    image: "/places/royal-gardens.jpg",
-    alt: "Ranmasu Uyana Royal Pleasure Gardens ancient baths",
-    story: "Walk through the kings' recreational park featuring sophisticated gravity-fed stone swimming pools, water conduits, and the famous stargate petroglyph, alongside the vast monolithic monk feeding hall.",
-    localNote: "You will discover how water was channeled from Tissa Wewa reservoir straight into the royal stone baths.",
+    name: "Abhayagiri Vihara",
+    subhead: "Vast Monastic Complex, Twin Ponds & Moonstone · 1st Century BCE",
+    image: "/places/abhayagiri.jpg",
+    alt: "Abhayagiri Vihara stupa and monastic ruins in Anuradhapura",
+    story: "A vast monastic complex and stupa, once the center of a major Buddhist sect. It includes ruins of monasteries, bathing ponds (like the famous twin ponds, Kuttam Pokuna), and a moonstone carving considered one of the finest in the country.",
+    localNote: "Discover the extraordinary engineering of the Kuttam Pokuna filter system and the supreme artistry of the Queen's Palace moonstone.",
   },
   {
     number: "06",
-    name: "Vessagiriya Forest Monastery",
-    subhead: "Secluded Rock Hermitages & Pre-Christian Inscriptions",
-    image: "/places/vessagiriya.jpg",
-    alt: "Vessagiriya ancient forest rock monastery",
-    story: "A tranquil sanctuary among massive natural boulders where 500 arhat monks lived in quiet meditation. Features ancient drip-ledge caves with early Brahmi rock inscriptions.",
-    localNote: "A quiet, contemplative stop far from typical tourist crowds, where the natural forest breeze meets ancient history.",
+    name: "Thuparamaya Stupa",
+    subhead: "First Stupa Built in Sri Lanka · 3rd Century BCE",
+    image: "/places/thuparamaya.jpg",
+    alt: "Thuparamaya stupa with concentric stone pillars in Anuradhapura",
+    story: "Believed to be the first stupa built in Sri Lanka, enshrining the collarbone relic of the Buddha, dating back to the 3rd century BCE.",
+    localNote: "Notice the graceful concentric circles of slender stone pillars that once supported an ancient wooden domed vatadage roof.",
+  },
+  {
+    number: "07",
+    name: "Lankarama Stupa",
+    subhead: "Ancient Vatadage with Concentric Stone Pillars · 1st Century BCE",
+    image: "/places/lankarama.jpg",
+    alt: "Lankarama stupa on circular stone terrace in Anuradhapura",
+    story: "A smaller stupa with rows of stone pillars surrounding it, believed to have once supported a roof structure (vatadage).",
+    localNote: "A remarkably peaceful sanctuary away from heavy tourist crowds, showcasing ancient circular architectural harmony.",
   },
 ];
 
@@ -138,7 +147,7 @@ export default function HomePage() {
             </p>
 
             <div className="hero-actions hero-actions-center">
-              <a className="button button-gold" href="/contact?journey=ancient-city-complete">
+              <a className="button button-gold" href="/contact?journey=ancient-anuradhapura">
                 Plan your private tour <span>↗</span>
               </a>
               <a className="hero-text-link" href="#tour-overview">
@@ -164,10 +173,10 @@ export default function HomePage() {
         <div className="shell tour-overview-heading">
           <div>
             <p className="eyebrow"><span />Your Ancient City tour</p>
-            <h2>One thoughtful day.<br /><em>Six remarkable places.</em></h2>
+            <h2>One thoughtful day.<br /><em>Seven remarkable places.</em></h2>
           </div>
           <div className="tour-overview-intro">
-            <p>A complete private route through Anuradhapura&apos;s sacred monuments, royal landscapes, museum, and peaceful monastery ruins.</p>
+            <p>A complete private route through Anuradhapura&apos;s sacred monuments, royal monasteries, rock temples, and ancient stupas.</p>
             <a href="#sacred-itinerary">Explore every stop <span>↓</span></a>
           </div>
         </div>
@@ -214,16 +223,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Detailed 6 Sacred Places Itinerary */}
+      {/* 4. Detailed 7 Sacred Places Itinerary */}
       <section id="sacred-itinerary" className="section sacred-itinerary-section">
         <div className="shell">
           <div className="itinerary-header">
             <div>
               <p className="eyebrow eyebrow-light"><span />The Complete Guided Route</p>
-              <h2>The 6 Sacred Places<br /><em>Included in Your Day</em></h2>
+              <h2>The 7 Sacred Places<br /><em>Included in Your Day</em></h2>
             </div>
             <p className="itinerary-intro-copy">
-              Every stop on this tour has been chosen to give you a complete, balanced understanding of Anuradhapura—from active pilgrimage hubs to peaceful forest hermitages and royal gardens.
+              Every stop on this tour has been chosen to give you a complete, balanced understanding of Anuradhapura—including Ruwanweli Seya, Isurumuniya, Jetavanaramaya, Jaya Sri Maha Bodhi, Abhayagiri Vihara, Thuparamaya, and Lankarama.
             </p>
           </div>
 
@@ -252,7 +261,7 @@ export default function HomePage() {
               <h3>Ready to experience the sacred city?</h3>
               <p>Private full-day or half-day tours shaped comfortably around your dates, pace, and interests.</p>
             </div>
-            <a className="button button-gold" href="/contact?journey=ancient-city-complete">
+            <a className="button button-gold" href="/contact?journey=ancient-anuradhapura">
               Inquire about your tour dates <span>↗</span>
             </a>
           </div>
