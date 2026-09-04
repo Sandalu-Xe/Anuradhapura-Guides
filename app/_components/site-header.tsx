@@ -3,12 +3,29 @@
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navigation } from "../_data/site";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [menuOpen]);
 
   const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
 
@@ -31,7 +48,8 @@ export function SiteHeader() {
           <span /><span />
         </button>
       </div>
-      <div className={`mobile-menu-panel${menuOpen ? " is-open" : ""}`} id="mobile-site-navigation" aria-hidden={!menuOpen}>
+      <button className={`mobile-menu-backdrop${menuOpen ? " is-open" : ""}`} type="button" aria-label="Close navigation" tabIndex={menuOpen ? 0 : -1} onClick={() => setMenuOpen(false)} />
+      <div className={`mobile-menu-panel${menuOpen ? " is-open" : ""}`} id="mobile-site-navigation" aria-hidden={!menuOpen} inert={!menuOpen}>
         <nav className="shell" aria-label="Mobile navigation">
           {navigation.map((item, index) => (
             <a className={isActive(item.href) ? "is-active" : ""} href={item.href} aria-current={isActive(item.href) ? "page" : undefined} onClick={() => setMenuOpen(false)} key={item.href}>

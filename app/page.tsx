@@ -68,6 +68,42 @@ const sacredPlacesList = [
   },
 ];
 
+const destinationOverview = [
+  {
+    number: "01",
+    eyebrow: "Ancient place",
+    title: "Anuradhapura",
+    image: "/places/ruwanweliseya.jpg",
+    alt: "Ruwanweliseya stupa in the Ancient City of Anuradhapura",
+    href: "#sacred-itinerary",
+    action: "Explore the Ancient City",
+    copy: "Walk through Sri Lanka's first great capital and discover sacred places that have welcomed pilgrims for more than two thousand years.",
+    highlights: ["Ruwanweliseya", "Isurumuniya", "Sri Maha Bodhi", "Abhayagiri Vihara", "Thuparamaya", "Lankarama"],
+  },
+  {
+    number: "02",
+    eyebrow: "Sacred mountain",
+    title: "Mihintale",
+    image: "/places/mihintale.jpg",
+    alt: "Mihintale mountain landscape near Anuradhapura",
+    href: "/places/mihintale",
+    action: "Discover Mihintale",
+    copy: "Climb the ancient monastic mountain where Buddhism first took root in Sri Lanka, with beautiful views across the northern plains.",
+    highlights: ["Ancient stairway", "Monastic ruins", "Panoramic views"],
+  },
+  {
+    number: "03",
+    eyebrow: "Wild northwest",
+    title: "Wilpattu",
+    image: "/places/wilpattu.jpg",
+    alt: "Wild landscape in Wilpattu National Park",
+    href: "/places/wilpattu",
+    action: "Explore Wilpattu",
+    copy: "Trade stone monuments for forest tracks, natural lakes, and the quiet thrill of a private safari in Sri Lanka's largest national park.",
+    highlights: ["Private safari", "Leopards & wildlife", "Natural forest lakes"],
+  },
+];
+
 const guideHighlights = [
   {
     title: "Living Buddhist Heritage",
@@ -168,31 +204,46 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. A scannable overview before the longer story */}
+      {/* 2. Three distinct destination experiences */}
       <section id="tour-overview" className="tour-overview-section">
         <div className="shell tour-overview-heading">
           <div>
-            <p className="eyebrow"><span />Your Ancient City tour</p>
-            <h2>One thoughtful day.<br /><em>Seven remarkable places.</em></h2>
+            <p className="eyebrow"><span />Choose your experience</p>
+            <h2>Three remarkable sides<br /><em>of the ancient north.</em></h2>
           </div>
           <div className="tour-overview-intro">
-            <p>A complete private route through Anuradhapura&apos;s sacred monuments, royal monasteries, rock temples, and ancient stupas.</p>
-            <a href="#sacred-itinerary">Explore every stop <span>↓</span></a>
+            <p>Begin with Anuradhapura&apos;s sacred city, climb the holy mountain of Mihintale, or follow the forest tracks of Wilpattu.</p>
+            <a href="/packages">View tour packages <span>↗</span></a>
           </div>
         </div>
 
-        <ol className="shell tour-overview-list">
-          {sacredPlacesList.map((place) => (
-            <li key={place.number}>
-              <a href={`#place-${place.number}`}>
-                <span>{place.number}</span>
-                <strong>{place.name}</strong>
-                <small>{place.subhead.split("·")[0]}</small>
-                <b aria-hidden="true">↘</b>
-              </a>
-            </li>
+        <div className="shell destination-overview-grid">
+          {destinationOverview.map((destination) => (
+            <article className="destination-overview-card" key={destination.number}>
+              <Image
+                src={destination.image}
+                alt={destination.alt}
+                fill
+                sizes="(max-width: 860px) 100vw, 33vw"
+              />
+              <div className="destination-card-shade" />
+              <div className="destination-card-content">
+                <div className="destination-card-topline">
+                  <span>{destination.number}</span>
+                  <small>{destination.eyebrow}</small>
+                </div>
+                <div className="destination-card-body">
+                  <h3>{destination.title}</h3>
+                  <p>{destination.copy}</p>
+                  <div className="destination-highlights" aria-label={`${destination.title} highlights`}>
+                    {destination.highlights.map((highlight) => <span key={highlight}>{highlight}</span>)}
+                  </div>
+                  <a href={destination.href}>{destination.action}<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
           ))}
-        </ol>
+        </div>
       </section>
 
       {/* 3. Guide's Personal Welcome & Philosophy */}
