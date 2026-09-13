@@ -2,54 +2,95 @@
 
 import { FormEvent, useState } from "react";
 
-export default function BookingForm({ initialInterest = "" }: { initialInterest?: string }) {
+export default function BookingForm({
+  initialInterest = "",
+}: {
+  initialInterest?: string;
+}) {
   const [sent, setSent] = useState(false);
+  const [emailDraft, setEmailDraft] = useState("");
 
   function submitBooking(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const body = Array.from(new FormData(event.currentTarget).entries())
+      .map(([key, value]) => `${key}: ${value}`)
+      .join("\n");
+    setEmailDraft(
+      `mailto:hello@anuradhapuraguidance.com?subject=Private%20tour%20enquiry&body=${encodeURIComponent(body)}`,
+    );
     setSent(true);
   }
 
-  if (sent) {
-    return (
-      <div className="booking-success" role="status" aria-live="polite">
-        <span className="success-icon">✓</span>
-        <p className="kicker">Request received</p>
-        <h3>Your Anuradhapura story starts here.</h3>
-        <p>
-          Thank you for reaching out. This preview is ready to connect to your preferred email or
-          WhatsApp so every real enquiry reaches you instantly.
-        </p>
-        <button type="button" onClick={() => setSent(false)}>Send another request</button>
-      </div>
-    );
-  }
+  const draftNotice = sent ? (
+    <div className="booking-success" role="status" aria-live="polite">
+      <span className="success-icon">✓</span>
+      <p className="kicker">Enquiry prepared — not sent yet</p>
+      <h3>Send your enquiry by email.</h3>
+      <p>
+        Open your email app to review and send your enquiry. Your details remain
+        in the form below.
+      </p>
+      <a className="button button-dark" href={emailDraft}>
+        Open email draft
+      </a>
+      <button type="button" onClick={() => setSent(false)}>
+        Edit enquiry
+      </button>
+    </div>
+  ) : null;
 
   return (
     <div className="booking-form-wrapper">
+      {draftNotice}
       <div className="booking-form-header">
         <span className="booking-form-eyebrow">Private Tour Enquiry</span>
-        <h2 className="booking-form-title">Plan Your <em>Private Journey</em></h2>
+        <h2 className="booking-form-title">
+          Plan Your <em>Private Journey</em>
+        </h2>
         <p className="booking-form-subtitle">
-          No payment required. Tell us about your ideal visit and we&apos;ll craft a personalised itinerary just for you.
+          No payment required. Tell us about your ideal visit and we&apos;ll
+          craft a personalised itinerary just for you.
         </p>
       </div>
 
-      <form className="booking-form" onSubmit={submitBooking} noValidate>
+      <form
+        className="booking-form"
+        onSubmit={submitBooking}
+        onChange={() => setSent(false)}
+      >
         <div className="booking-fields-grid">
           <div className="field full">
             <label htmlFor="name">Your Name</label>
-            <input id="name" name="name" placeholder="How should we address you?" required />
+            <input
+              id="name"
+              name="name"
+              autoComplete="name"
+              placeholder="How should we address you?"
+              required
+            />
           </div>
 
           <div className="field">
             <label htmlFor="email">Email Address</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              placeholder="you@example.com"
+              required
+            />
           </div>
 
           <div className="field">
             <label htmlFor="country">Country of Origin</label>
-            <input id="country" name="country" placeholder="Where are you travelling from?" required />
+            <input
+              id="country"
+              name="country"
+              autoComplete="country-name"
+              placeholder="Where are you travelling from?"
+              required
+            />
           </div>
 
           <div className="field">
@@ -69,11 +110,22 @@ export default function BookingForm({ initialInterest = "" }: { initialInterest?
 
           <div className="field full">
             <label htmlFor="interest">Journey Interest</label>
-            <select id="interest" name="interest" defaultValue={initialInterest}>
+            <select
+              id="interest"
+              name="interest"
+              defaultValue={initialInterest}
+            >
               <option value="">Help me choose</option>
-              <option value="ancient-anuradhapura">Ancient Places Anuradhapura ($13/person · 8:30 AM–2:30 PM)</option>
-              <option value="ancient-mihintale">Ancient Place Mihintale ($13/person · 8:30 AM–2:30 PM)</option>
-              <option value="wilpattu-tourism">Wilpattu Tourism Safari ($30/person + $180 Jeep · 8:30 AM–2:30 PM)</option>
+              <option value="ancient-anuradhapura">
+                Ancient Places Anuradhapura ($13/person · 8:30 AM–2:30 PM)
+              </option>
+              <option value="ancient-mihintale">
+                Ancient Place Mihintale ($13/person · 8:30 AM–2:30 PM)
+              </option>
+              <option value="wilpattu-tourism">
+                Wilpattu Tourism Safari ($30/person + $180 Jeep · 8:30 AM–2:30
+                PM)
+              </option>
               <option value="custom">Custom Private Route</option>
               <option value="ruwanweliseya">Ruwanweliseya Stupa</option>
               <option value="isurumuniya">Isurumuniya Rock Temple</option>
@@ -100,11 +152,18 @@ export default function BookingForm({ initialInterest = "" }: { initialInterest?
 
         <div className="booking-form-footer">
           <div className="booking-form-assurance">
-            <span className="assurance-icon" aria-hidden="true">🔒</span>
-            <p>No payment needed. We&apos;ll shape the itinerary with you first.</p>
+            <span className="assurance-icon" aria-hidden="true">
+              🔒
+            </span>
+            <p>
+              No payment needed. We&apos;ll shape the itinerary with you first.
+            </p>
           </div>
-          <button className="button button-gold booking-submit-btn" type="submit">
-            Request Availability <span className="btn-arrow" aria-hidden="true">↗</span>
+          <button
+            className="button button-gold booking-submit-btn"
+            type="submit"
+          >
+            Prepare email enquiry
           </button>
         </div>
       </form>

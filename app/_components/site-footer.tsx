@@ -6,8 +6,15 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="shell footer-grid">
         <div className="footer-intro">
-          <Image src="/anuradhapura-guidance-logo.png" alt="Anuradhapura Guidance" width={82} height={82} />
-          <p>Private, unhurried journeys through Sri Lanka&apos;s first kingdom.</p>
+          <Image
+            src="/anuradhapura-guide-mark.png"
+            alt="Anuradhapura Guide stupa logo"
+            width={82}
+            height={82}
+          />
+          <p>
+            Private, unhurried journeys through Sri Lanka&apos;s first kingdom.
+          </p>
         </div>
 
         {/* Interactive Dropdown Quick Menu */}
@@ -16,9 +23,7 @@ export function SiteFooter() {
         <div className="footer-callout">
           <span>Travel slowly</span>
           <h2>Let the ancient city unfold.</h2>
-          <a href="/contact">
-            Create your journey <span aria-hidden="true">↗</span>
-          </a>
+          <a href="/contact">Create your journey</a>
         </div>
       </div>
 

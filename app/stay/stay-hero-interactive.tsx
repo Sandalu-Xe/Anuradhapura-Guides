@@ -1,78 +1,25 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { greenVillageHomestay } from "../_data/site";
 
-interface HeroSlide {
-  src: string;
-  alt: string;
-  label: string;
-  badge: string;
-  tag: string;
-}
-
-const HERO_SLIDES: HeroSlide[] = [
-  {
-    src: "/green-village/homestay-garden.avif",
-    alt: "Green Village guesthouse front and tropical garden in Thalawa, Anuradhapura",
-    label: "Tropical Garden",
-    badge: "Quiet Village Setting · 15 mins to Sacred City",
-    tag: "Guesthouse & Garden",
-  },
-  {
-    src: "/green-village/family-guest-welcome.webp",
-    alt: "Gunarathna welcoming foreign guests at Green Village",
-    label: "Warm Family Host",
-    badge: "Hosted by Gunarathna · Licensed Guide & English Teacher",
-    tag: "Meet Your Guide",
-  },
-  {
-    src: "/green-village/homestay-veranda.avif",
-    alt: "Garden veranda seating area with chairs",
-    label: "Garden Veranda",
-    badge: "Shaded Outdoor Seating & Cool Morning Tea",
-    tag: "Relaxation Veranda",
-  },
-  {
-    src: "/green-village/family-guests-table.avif",
-    alt: "Guests dining on authentic Sri Lankan home-cooked food",
-    label: "Home Cooking",
-    badge: "Authentic Family-Prepared Breakfasts & Dinners",
-    tag: "Home-Cooked Meals",
-  },
-];
+import { HERO_SLIDES } from "../_data/stay-gallery";
 
 export function StayHeroInteractive() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    if (isPaused) return;
-
-    timerRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 5000);
-
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [isPaused]);
 
   const activeSlide = HERO_SLIDES[activeIndex];
 
   const handleSelect = (index: number) => {
     setActiveIndex(index);
-    setIsPaused(true);
-    // Resume auto-play after 8 seconds of inactivity
-    if (timerRef.current) clearInterval(timerRef.current);
-    setTimeout(() => setIsPaused(false), 8000);
   };
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setActiveIndex((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+    setActiveIndex(
+      (prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length,
+    );
   };
 
   const handleNext = (e: React.MouseEvent) => {
@@ -81,11 +28,7 @@ export function StayHeroInteractive() {
   };
 
   return (
-    <section
-      className="stay-editorial-hero"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <section className="stay-editorial-hero">
       <div className="shell stay-hero-grid">
         {/* Left Column: Clear Text & Context */}
         <div className="stay-hero-text-col">
@@ -99,7 +42,11 @@ export function StayHeroInteractive() {
           </h1>
 
           <p className="stay-hero-summary">
-            When visiting Anuradhapura, stay directly at our peaceful family homestay in <strong>Thalawa</strong>. Hosted by licensed guide and English teacher <strong>Gunarathna</strong>, you&apos;ll enjoy comfortable air-conditioned rooms, delicious home-cooked meals, and unhurried sacred city journeys.
+            When visiting Anuradhapura, stay directly at our peaceful family
+            homestay in <strong>Thalawa</strong>. Hosted by licensed guide and
+            English teacher <strong>Gunarathna</strong>, you&apos;ll enjoy
+            comfortable air-conditioned rooms, delicious home-cooked meals, and
+            unhurried sacred city journeys.
           </p>
 
           <div className="stay-hero-badges-row">
@@ -121,7 +68,7 @@ export function StayHeroInteractive() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Visit Green Village Website <span>↗</span>
+              Visit Green Village Website
             </a>
 
             <a
@@ -130,7 +77,7 @@ export function StayHeroInteractive() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Book on Airbnb <span>↗</span>
+              Book on Airbnb
             </a>
 
             <a
@@ -139,7 +86,7 @@ export function StayHeroInteractive() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              View Rooms &amp; Rates <span>↗</span>
+              View Rooms &amp; Rates
             </a>
           </div>
         </div>
@@ -220,7 +167,9 @@ export function StayHeroInteractive() {
                   sizes="(max-width: 900px) 25vw, 12vw"
                 />
                 <span>{slide.label}</span>
-                {idx === activeIndex && <div className="stay-thumb-active-bar" />}
+                {idx === activeIndex && (
+                  <div className="stay-thumb-active-bar" />
+                )}
               </button>
             ))}
           </div>

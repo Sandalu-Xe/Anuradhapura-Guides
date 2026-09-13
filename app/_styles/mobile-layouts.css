@@ -1,0 +1,1187 @@
+/* Apple-inspired mobile rhythm: compact chrome, focused messages and swipeable media */
+@media (max-width: 860px) {
+  body {
+    overflow-x: visible;
+  }
+  .shell {
+    width: min(100% - 32px, 760px);
+  }
+
+  .desktop-nav,
+  .header-cta {
+    display: none;
+  }
+
+  .site-header {
+    top: 0;
+    width: 100%;
+    min-height: 54px;
+    margin: 0;
+    border: 0;
+    border-bottom: 1px solid rgba(24, 28, 24, 0.09);
+    border-radius: 0;
+    background: rgba(245, 243, 237, 0.88);
+    box-shadow: none;
+    backdrop-filter: blur(24px) saturate(1.3);
+  }
+  .site-header .header-inner {
+    width: min(100% - 32px, 760px);
+    min-height: 54px;
+    padding: 0;
+  }
+  .site-brand {
+    gap: 9px;
+  }
+  .site-brand img {
+    width: 34px;
+    height: 34px;
+  }
+  .site-brand strong {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .site-brand small {
+    display: none;
+  }
+  .mobile-menu-button {
+    width: 44px;
+    height: 44px;
+    gap: 6px;
+    border: 0;
+    background: transparent;
+  }
+  .mobile-menu-button span {
+    width: 18px;
+  }
+  .mobile-menu-button:hover {
+    background: rgba(24, 28, 24, 0.06);
+    transform: none;
+  }
+  .mobile-menu-backdrop {
+    inset: 54px 0 0;
+    background: transparent;
+    backdrop-filter: none;
+  }
+  .mobile-menu-panel {
+    z-index: 49;
+    top: 54px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    background: rgba(245, 243, 237, 0.985);
+    color: var(--night);
+    box-shadow: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition:
+      opacity 0.24s ease,
+      transform 0.34s cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0.24s;
+  }
+  .mobile-menu-panel.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .mobile-menu-panel nav {
+    width: min(100% - 40px, 620px);
+    gap: 0;
+    padding: 28px 0 40px;
+  }
+  .mobile-menu-panel nav > a:not(.mobile-menu-cta) {
+    min-height: 56px;
+    display: flex;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid rgba(24, 28, 24, 0.1);
+    border-radius: 0;
+    color: var(--night);
+    font-family: var(--font-inter), sans-serif;
+    font-size: 26px;
+    font-weight: 720;
+    letter-spacing: -0.035em;
+  }
+  .mobile-menu-panel nav > a:not(.mobile-menu-cta) > span {
+    display: none;
+  }
+  .mobile-menu-panel nav > a:not(.mobile-menu-cta):hover,
+  .mobile-menu-panel nav > a.is-active {
+    padding-inline: 0;
+    background: transparent;
+    color: var(--signal);
+  }
+  .mobile-menu-cta {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 26px;
+    padding: 0 22px;
+    background: var(--night);
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+
+  .premium-home-hero,
+  .editorial-page-hero,
+  .editorial-detail-hero,
+  .stay-editorial-hero,
+  .package-app-hero,
+  .contact-intro {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .premium-home-hero {
+    min-height: 0;
+  }
+  .premium-hero-grid {
+    width: min(100% - 32px, 760px);
+    gap: 44px;
+    padding-block: 66px 72px;
+  }
+  .premium-home-hero .hero-story-col {
+    max-width: 650px;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .premium-home-hero .premium-hero-eyebrow {
+    margin: 0 auto 22px;
+  }
+  .premium-home-hero h1 {
+    max-width: 680px;
+    margin-inline: auto;
+    font-size: clamp(52px, 10.5vw, 78px);
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+    text-align: center;
+  }
+  .premium-home-hero .hero-human-lead {
+    max-width: 590px;
+    margin: 26px auto 0;
+    font-size: 17px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .premium-home-hero .hero-actions {
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .premium-home-hero .hero-trust-line {
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .premium-hero-visual {
+    width: 100%;
+    border-radius: 28px 28px 72px 28px;
+  }
+
+  .experience-collage {
+    padding-block: 64px;
+  }
+  .experience-collage .shell {
+    width: 100%;
+  }
+  .experience-collage-grid {
+    min-height: 0;
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-inline: 16px;
+    scroll-padding-inline: 16px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .experience-collage-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .experience-collage-card,
+  .collage-sacred,
+  .collage-mihintale,
+  .collage-wild {
+    width: min(78vw, 460px);
+    min-width: min(78vw, 460px);
+    height: 340px;
+    border-radius: 26px;
+    scroll-snap-align: center;
+  }
+
+  .tour-overview-section,
+  .guide-welcome-section,
+  .sacred-itinerary-section,
+  .reviews-section,
+  .page-directory,
+  .places-listing,
+  .package-explorer,
+  .reviews-page,
+  .contact-form-section {
+    padding-block: 88px;
+  }
+  .tour-overview-heading,
+  .itinerary-header,
+  .page-directory-heading,
+  .package-app-heading,
+  .listing-intro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+  .tour-overview-heading .eyebrow,
+  .itinerary-header .eyebrow,
+  .section-head-simple .eyebrow,
+  .page-directory-heading .eyebrow,
+  .package-app-heading .eyebrow {
+    margin-inline: auto;
+  }
+  .tour-overview-intro p,
+  .itinerary-intro-copy,
+  .package-app-heading > p {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+  .tour-overview-intro a {
+    margin-inline: auto;
+  }
+  .destination-overview-grid {
+    gap: 14px;
+  }
+  .destination-overview-card,
+  .destination-card-content {
+    min-height: 540px;
+  }
+  .destination-card-content {
+    padding: 26px;
+  }
+  .guide-highlights-grid {
+    gap: 12px;
+  }
+  .guide-highlight-card {
+    min-height: 260px;
+  }
+  .editorial-place-card {
+    border-radius: 24px;
+  }
+  .place-image-frame {
+    min-height: 280px;
+  }
+  .page-directory-grid {
+    gap: 14px;
+  }
+
+  .editorial-page-hero-grid,
+  .editorial-detail-grid {
+    width: min(100% - 32px, 760px);
+    gap: 40px;
+    padding-block: 66px 72px;
+  }
+  .editorial-page-hero-copy,
+  .detail-hero-copy {
+    max-width: 650px;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .editorial-page-hero-copy .eyebrow,
+  .detail-hero-copy .eyebrow {
+    margin-inline: auto;
+  }
+  .editorial-page-hero h1,
+  .detail-hero-copy h1 {
+    font-size: clamp(54px, 10vw, 76px);
+    line-height: 0.96;
+  }
+  .editorial-page-hero-copy > p:last-child,
+  .detail-hero-copy > p:last-child {
+    max-width: 560px;
+    margin-inline: auto;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  .editorial-page-hero-visual,
+  .detail-hero-visual {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    border-radius: 28px 28px 72px 28px;
+  }
+  .detail-hero-copy .back-link {
+    margin: 0 auto 34px;
+  }
+
+  .package-app-hero {
+    background: var(--night);
+  }
+  .package-app-hero-grid {
+    width: min(100% - 32px, 760px);
+    margin: 0 auto;
+    padding: 66px 0 72px;
+    border-radius: 0;
+    text-align: center;
+  }
+  .package-app-hero .eyebrow {
+    justify-content: center;
+  }
+  .package-app-hero h1 {
+    margin-inline: auto;
+    font-size: clamp(54px, 10vw, 76px);
+    line-height: 0.96;
+  }
+  .package-app-hero-grid > div:first-child > p:last-child {
+    margin-inline: auto;
+    font-size: 17px;
+  }
+  .package-app-stats {
+    width: 100%;
+    max-width: 600px;
+    margin-inline: auto;
+  }
+  .package-filter-panel {
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+  .filter-panel-title {
+    display: none;
+  }
+  .destination-filter-list {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .destination-filter-list::-webkit-scrollbar {
+    display: none;
+  }
+  .destination-filter-list button,
+  .destination-filter-list button:first-child {
+    min-width: max-content;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+    border: 1px solid rgba(24, 28, 24, 0.12);
+    background: rgba(255, 255, 255, 0.68);
+    color: var(--ink);
+  }
+  .destination-filter-list button span {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 14px;
+    font-weight: 650;
+  }
+  .destination-filter-list button small {
+    color: #526057;
+    font-size: 11px;
+    text-transform: none;
+  }
+  .destination-filter-list button.is-active {
+    padding-left: 16px;
+    border: 1px solid var(--night);
+    background: var(--night);
+    color: #fff;
+  }
+  .destination-filter-list button.is-active small {
+    color: #d4dbd5;
+  }
+  .filter-help-card {
+    display: none;
+  }
+  .package-results {
+    min-width: 0;
+  }
+  .package-search {
+    border: 0;
+    border-radius: 14px;
+    box-shadow: inset 0 0 0 1px rgba(24, 28, 24, 0.12);
+  }
+  .package-search input {
+    font-size: 16px;
+  }
+
+  .stay-hero-grid {
+    width: min(100% - 32px, 760px);
+    gap: 44px;
+    padding-block: 66px 72px;
+  }
+  .stay-hero-text-col {
+    max-width: 650px;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .stay-hero-eyebrow {
+    justify-content: center;
+  }
+  .stay-hero-main-title {
+    font-size: clamp(48px, 9vw, 68px);
+    line-height: 1;
+  }
+  .stay-hero-summary {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  .stay-hero-badges-row,
+  .stay-hero-actions {
+    justify-content: center;
+  }
+  .stay-hero-main-frame {
+    height: auto;
+    aspect-ratio: 16 / 10;
+    border-radius: 28px;
+  }
+  .stay-nav-arrow {
+    width: 44px;
+    height: 44px;
+    opacity: 1;
+  }
+  .stay-host-grid {
+    gap: 52px;
+  }
+  .stay-section-header,
+  .stay-host-content,
+  .stay-gallery-top,
+  .stay-banner-copy {
+    text-align: center;
+  }
+  .stay-section-header .eyebrow,
+  .stay-host-content .eyebrow,
+  .stay-gallery-top .eyebrow,
+  .stay-banner-copy .eyebrow {
+    justify-content: center;
+  }
+  .stay-section-subtitle,
+  .stay-host-lead-p,
+  .stay-host-text {
+    margin-inline: auto;
+  }
+  .stay-host-buttons {
+    justify-content: center;
+  }
+
+  .contact-intro {
+    background: var(--night);
+  }
+  .contact-intro .shell {
+    width: min(100% - 32px, 760px);
+    margin: 0 auto;
+    padding: 66px 0 72px;
+    border-radius: 0;
+    text-align: center;
+  }
+  .contact-intro .eyebrow {
+    justify-content: center;
+  }
+  .contact-intro h1 {
+    font-size: clamp(54px, 10vw, 76px);
+    line-height: 0.96;
+  }
+  .contact-intro .shell > p:not(.eyebrow) {
+    margin-inline: auto;
+    font-size: 17px;
+  }
+  .contact-promises {
+    justify-content: center;
+  }
+  .contact-grid > div:first-child {
+    max-width: 620px;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .contact-grid > div:first-child .eyebrow {
+    justify-content: center;
+  }
+  .contact-grid dl {
+    text-align: left;
+  }
+
+  .site-footer {
+    padding-top: 56px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 38px;
+  }
+  .footer-intro {
+    text-align: center;
+  }
+  .footer-intro img {
+    width: 58px;
+    height: 58px;
+    margin-inline: auto;
+  }
+  .footer-intro p {
+    max-width: 330px;
+    margin: 18px auto 0;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .footer-quick-menu {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .footer-accordion-btn {
+    min-height: 50px;
+    padding: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: none;
+    cursor: pointer;
+  }
+  .footer-accordion-icon {
+    display: block;
+    transition: transform 0.25s ease;
+  }
+  .footer-accordion-item.is-open .footer-accordion-icon {
+    transform: rotate(180deg);
+  }
+  .footer-accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition:
+      max-height 0.35s ease,
+      visibility 0.35s;
+  }
+  .footer-accordion-item.is-open .footer-accordion-body {
+    max-height: none;
+    visibility: visible;
+  }
+  .footer-links-list {
+    gap: 0;
+    padding: 4px 0 16px;
+  }
+  .footer-nav-link,
+  .footer-links-list p {
+    min-height: 44px;
+    font-size: 14px;
+  }
+  .footer-callout {
+    text-align: center;
+  }
+  .footer-callout h2 {
+    max-width: 380px;
+    margin-inline: auto;
+    font-family: var(--font-inter), sans-serif;
+    font-weight: 740;
+  }
+  .footer-callout a {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .shell {
+    width: calc(100% - 32px);
+  }
+  .section {
+    padding-block: 72px;
+  }
+
+  .premium-hero-grid {
+    gap: 34px;
+    padding-block: 50px 60px;
+  }
+  .premium-home-hero h1 {
+    font-size: clamp(44px, 12.5vw, 58px);
+  }
+  .premium-home-hero .hero-human-lead {
+    font-size: 16px;
+  }
+  .premium-home-hero .hero-actions {
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .premium-home-hero .hero-actions .button,
+  .premium-home-hero .hero-text-link {
+    width: auto;
+    min-height: 48px;
+    padding-inline: 20px;
+  }
+  .premium-home-hero .hero-text-link {
+    align-self: auto;
+  }
+  .premium-home-hero .hero-trust-line {
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+  .premium-home-hero .hero-trust-line span + span::before {
+    margin-inline: 7px;
+  }
+  .premium-hero-visual {
+    border-radius: 22px 22px 54px 22px;
+  }
+  .hero-visual-caption {
+    right: 14px;
+    bottom: 12px;
+    left: 14px;
+  }
+
+  .experience-collage {
+    padding-block: 48px;
+  }
+  .experience-collage-card,
+  .collage-sacred,
+  .collage-mihintale,
+  .collage-wild {
+    width: 82vw;
+    min-width: 82vw;
+    height: 300px;
+  }
+
+  .tour-overview-section,
+  .guide-welcome-section,
+  .sacred-itinerary-section,
+  .reviews-section,
+  .page-directory,
+  .places-listing,
+  .package-explorer,
+  .reviews-page,
+  .contact-form-section {
+    padding-block: 72px;
+  }
+  .tour-overview-heading,
+  .reviews-section .section-head-simple,
+  .page-directory-heading,
+  .package-app-heading {
+    margin-bottom: 44px;
+  }
+  .tour-overview-heading h2,
+  .guide-welcome-section h2,
+  .itinerary-header h2,
+  .section-head-simple h2,
+  .page-directory-heading h2,
+  .package-app-heading h2 {
+    font-size: clamp(40px, 11vw, 50px);
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+  .tour-overview-intro p,
+  .itinerary-intro-copy,
+  .package-app-heading > p {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .destination-overview-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    margin-inline: -16px;
+    padding: 0 16px 8px;
+    scroll-padding-inline: 16px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .destination-overview-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .destination-overview-card,
+  .destination-overview-card:nth-child(1),
+  .destination-overview-card:nth-child(2),
+  .destination-overview-card:nth-child(3) {
+    width: 84vw;
+    min-width: 84vw;
+    min-height: 480px;
+    border-radius: 24px;
+    transform: none;
+    scroll-snap-align: center;
+  }
+  .destination-card-content {
+    min-height: 480px;
+    padding: 22px;
+  }
+  .destination-card-body h3 {
+    font-size: 38px;
+  }
+  .destination-card-body > p {
+    font-size: 15px;
+  }
+  .destination-card-body > a {
+    width: auto;
+    min-height: 48px;
+    padding-inline: 18px;
+  }
+  .guide-highlight-card {
+    min-height: 230px;
+    padding: 24px;
+  }
+  .editorial-place-card {
+    grid-template-columns: 1fr;
+  }
+  .place-image-frame {
+    height: 230px;
+    min-height: 0;
+  }
+  .place-details {
+    padding: 24px;
+  }
+  .itinerary-cta-banner {
+    padding: 30px 24px;
+    text-align: center;
+  }
+  .itinerary-cta-banner .button {
+    width: 100%;
+  }
+  .reviews-editorial-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    margin-inline: -16px;
+    padding: 0 16px 8px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .reviews-editorial-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .review-card-item {
+    width: 84vw;
+    min-width: 84vw;
+    min-height: 310px;
+    scroll-snap-align: center;
+  }
+  .page-directory-image {
+    height: 230px;
+  }
+  .page-directory-copy {
+    padding: 22px;
+  }
+  .page-directory-copy h3 {
+    font-size: 30px;
+  }
+  .page-directory-copy p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .editorial-page-hero-grid,
+  .editorial-detail-grid {
+    gap: 32px;
+    padding-block: 50px 60px;
+  }
+  .editorial-page-hero h1,
+  .detail-hero-copy h1 {
+    font-size: clamp(44px, 12.5vw, 58px);
+  }
+  .editorial-page-hero-copy > p:last-child,
+  .detail-hero-copy > p:last-child {
+    font-size: 16px;
+  }
+  .editorial-page-hero-visual,
+  .detail-hero-visual {
+    border-radius: 22px 22px 54px 22px;
+  }
+  .listing-intro {
+    margin-bottom: 44px;
+    padding-bottom: 24px;
+  }
+  .listing-intro p:first-child {
+    font-size: 14px;
+  }
+  .places-grid {
+    gap: 48px;
+  }
+  .place-image,
+  .place-card:nth-child(3n + 2) .place-image {
+    height: 280px;
+    border-radius: 22px;
+  }
+  .place-card-body {
+    padding: 20px 2px 0;
+  }
+  .place-meta {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .place-card h3 {
+    margin-top: 12px;
+    font-size: 34px;
+  }
+  .place-card-body > p {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .arrow-link {
+    width: auto;
+    min-height: 48px;
+    padding-inline: 18px;
+  }
+
+  .story-grid {
+    gap: 28px;
+  }
+  .story-index {
+    border-radius: 14px;
+  }
+  .story-lead {
+    font-size: 21px;
+    line-height: 1.5;
+  }
+  .story-main blockquote {
+    margin-top: 30px;
+    padding-top: 24px;
+    font-size: 25px;
+  }
+  .visit-card {
+    padding: 24px;
+  }
+  .visit-card dt,
+  .visit-card dd,
+  .visit-card li {
+    font-size: 14px;
+  }
+  .next-place {
+    padding-block: 58px;
+  }
+  .next-place a {
+    font-size: 34px;
+    line-height: 1;
+  }
+
+  .package-app-hero-grid {
+    gap: 34px;
+    padding-block: 50px 60px;
+  }
+  .package-app-hero h1 {
+    font-size: clamp(44px, 12.5vw, 58px);
+  }
+  .package-app-hero-grid > div:first-child > p:last-child {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .package-app-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .package-app-stats > div {
+    min-height: 82px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 12px 6px;
+    border-right: 1px solid rgba(255, 255, 255, 0.16);
+    border-bottom: 0;
+  }
+  .package-app-stats > div:last-child {
+    border-right: 0;
+  }
+  .package-app-stats strong {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 18px;
+    font-weight: 720;
+  }
+  .package-app-stats span {
+    font-size: 10px;
+    line-height: 1.25;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .package-app-layout {
+    gap: 26px;
+  }
+  .package-toolbar {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .package-toolbar > p {
+    font-size: 12px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .package-result-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .explorer-package-card {
+    border: 0;
+    border-radius: 22px;
+    box-shadow: 0 14px 36px rgba(24, 28, 24, 0.08);
+  }
+  .explorer-package-image {
+    height: 230px;
+  }
+  .explorer-package-image > span,
+  .explorer-package-image > strong {
+    top: 14px;
+    padding: 7px 10px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+  .explorer-package-image > span {
+    left: 14px;
+  }
+  .explorer-package-image > strong {
+    right: 14px;
+  }
+  .explorer-package-body {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+  .explorer-package-meta {
+    font-size: 11px;
+    letter-spacing: 0.03em;
+  }
+  .explorer-package-body h3 {
+    font-size: 30px;
+  }
+  .explorer-package-body > p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .explorer-package-body li {
+    padding-block: 12px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .explorer-package-foot {
+    margin-top: 24px;
+  }
+  .explorer-package-foot > a {
+    min-height: 48px;
+    padding-inline: 20px;
+  }
+
+  .stay-hero-grid {
+    gap: 34px;
+    padding-block: 50px 60px;
+  }
+  .stay-hero-main-title {
+    font-size: clamp(42px, 12vw, 54px);
+  }
+  .stay-hero-summary {
+    font-size: 16px;
+  }
+  .stay-hero-badges-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .stay-rating-badge,
+  .stay-info-pill {
+    width: auto;
+    min-width: 0;
+    padding: 13px;
+    border-radius: 16px;
+    text-align: left;
+  }
+  .stay-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .stay-hero-actions .button {
+    width: 100%;
+    min-height: 50px;
+  }
+  .stay-hero-main-frame {
+    aspect-ratio: 4 / 3;
+    border-radius: 22px;
+  }
+  .stay-slide-info-pill {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    max-width: none;
+    border-radius: 14px;
+  }
+  .stay-slide-pill-badge {
+    font-size: 12px;
+  }
+  .stay-nav-arrow {
+    top: 46%;
+  }
+  .stay-hero-thumb-row {
+    display: none;
+  }
+  .stay-why-section,
+  .stay-host-section,
+  .stay-room-section,
+  .stay-gallery-section,
+  .stay-reviews-section,
+  .stay-direct-banner {
+    padding-block: 72px;
+  }
+  .stay-section-header h2,
+  .stay-host-content h2,
+  .stay-gallery-top h2,
+  .stay-banner-copy h2 {
+    font-size: clamp(38px, 10.5vw, 48px);
+    line-height: 1;
+  }
+  .stay-why-card {
+    min-height: 230px;
+    padding: 24px;
+  }
+  .stay-host-image-frame {
+    height: 320px;
+    border-radius: 22px;
+  }
+  .stay-host-stats-chip {
+    margin: -22px auto 0;
+    border-radius: 16px;
+  }
+  .stay-host-buttons {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .stay-host-buttons .button {
+    width: 100%;
+  }
+  .stay-room-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .stay-room-card {
+    min-height: 190px;
+    padding: 20px 16px;
+  }
+  .stay-room-card h3 {
+    font-size: 18px;
+  }
+  .stay-room-card p {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .stay-gallery-top {
+    gap: 24px;
+  }
+  .stay-gallery-top .button {
+    width: 100%;
+  }
+  .stay-photo-card-large,
+  .stay-photo-card {
+    height: 230px;
+  }
+  .stay-review-card {
+    min-height: 300px;
+    padding: 24px;
+  }
+  .stay-banner-actions-card {
+    padding: 24px 18px;
+    border-radius: 22px;
+  }
+
+  .contact-intro .shell {
+    padding-block: 50px 60px;
+  }
+  .contact-intro h1 {
+    font-size: clamp(44px, 12.5vw, 58px);
+  }
+  .contact-intro .shell > p:not(.eyebrow) {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .contact-promises {
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+  }
+  .contact-promises span {
+    width: auto;
+    padding: 8px 11px;
+    font-size: 11px;
+  }
+  .contact-grid {
+    gap: 40px;
+  }
+  .contact-grid h2 {
+    font-size: 42px;
+    line-height: 1;
+  }
+  .contact-grid > div:first-child > p:not(.eyebrow) {
+    font-size: 16px;
+  }
+  .contact-grid dl > div {
+    grid-template-columns: 84px 1fr;
+    gap: 12px;
+  }
+  .contact-grid dt,
+  .contact-grid dd {
+    font-size: 13px;
+  }
+  .booking-form-wrapper {
+    border-radius: 22px;
+  }
+  .booking-form-header,
+  .booking-form {
+    padding-inline: 20px;
+  }
+  .booking-form-title {
+    font-size: 34px;
+  }
+  .field label {
+    font-size: 14px;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    min-height: 50px;
+    font-size: 16px;
+  }
+  .booking-form-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .booking-submit-btn {
+    width: 100%;
+  }
+
+  .cta-strip {
+    padding-block: 58px;
+  }
+  .cta-strip-inner {
+    align-items: center;
+    text-align: center;
+  }
+  .cta-strip p {
+    font-size: 30px;
+  }
+  .cta-strip a {
+    min-width: 0;
+    width: auto;
+    min-height: 48px;
+  }
+  .footer-bottom {
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+  }
+}
+
+@media (max-width: 390px) {
+  .premium-home-hero h1,
+  .editorial-page-hero h1,
+  .detail-hero-copy h1,
+  .package-app-hero h1,
+  .contact-intro h1 {
+    font-size: 42px;
+  }
+  .stay-hero-main-title {
+    font-size: 40px;
+  }
+  .premium-home-hero .hero-actions {
+    flex-direction: column;
+  }
+  .premium-home-hero .hero-actions .button,
+  .premium-home-hero .hero-text-link {
+    width: 100%;
+  }
+  .stay-hero-badges-row,
+  .stay-room-grid {
+    grid-template-columns: 1fr;
+  }
+}

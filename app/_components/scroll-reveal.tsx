@@ -3,12 +3,40 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
+const staggerGroups = [
+  "guide-highlights-grid",
+  "reviews-editorial-grid",
+  "experience-collage-grid",
+  "destination-overview-grid",
+  "editorial-places-grid",
+  "places-grid",
+  "stay-grid",
+  "stay-why-grid",
+  "stay-room-grid",
+  "stay-photo-mosaic",
+  "stay-reviews-grid",
+  "page-directory-grid",
+  "package-result-grid",
+  "reviews-grid",
+];
+
 export function ScrollReveal() {
   const pathname = usePathname();
 
   useEffect(() => {
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (
+      !("IntersectionObserver" in window)
+    ) {
+      document.documentElement.classList.remove("js-ready");
+      return;
+    }
     // Add js-ready class to document root to enable scroll animations
-    document.documentElement.classList.add("js-ready");
+    const syncMotionPreference = () => {
+      document.documentElement.classList.toggle("js-ready", !motionPreference.matches);
+    };
+    syncMotionPreference();
+    motionPreference.addEventListener("change", syncMotionPreference);
 
     const targetSelectors = [
       ".section-heading",
@@ -26,17 +54,18 @@ export function ScrollReveal() {
       ".listing-intro",
       ".story-grid",
       ".itinerary-cta-banner",
+      ".premium-hero-visual",
+      ".experience-collage-card",
+      ".destination-overview-card",
       ".cta-strip-inner",
       ".guide-note",
       ".ritual-layout",
       ".tailor-grid",
-      ".tour-overview-list li",
       ".guide-highlight-card",
       ".editorial-place-card",
       ".review-card-item",
       ".page-directory-card",
       ".place-card",
-      ".package-card",
       ".stay-grid article",
       ".explorer-package-card",
       ".booking-form-wrapper",
@@ -53,7 +82,10 @@ export function ScrollReveal() {
       ".stay-direct-banner-grid",
     ];
 
-    const elements = document.querySelectorAll<HTMLElement>(targetSelectors.join(", "));
+    const selector = targetSelectors.join(", ");
+    // Reveal a section or its cards, never two nested layers at once.
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(selector))
+      .filter((element) => !element.parentElement?.closest(selector));
 
     elements.forEach((el) => {
       if (!el.classList.contains("reveal-item")) {
@@ -64,24 +96,16 @@ export function ScrollReveal() {
       const parentGrid = el.parentElement;
       if (
         parentGrid &&
-        (parentGrid.classList.contains("guide-highlights-grid") ||
-          parentGrid.classList.contains("reviews-editorial-grid") ||
-          parentGrid.classList.contains("editorial-places-grid") ||
-          parentGrid.classList.contains("tour-overview-list") ||
-          parentGrid.classList.contains("places-grid") ||
-          parentGrid.classList.contains("package-grid") ||
-          parentGrid.classList.contains("stay-grid") ||
-          parentGrid.classList.contains("stay-why-grid") ||
-          parentGrid.classList.contains("stay-room-grid") ||
-          parentGrid.classList.contains("stay-photo-mosaic") ||
-          parentGrid.classList.contains("stay-reviews-grid") ||
-          parentGrid.classList.contains("page-directory-grid") ||
-          parentGrid.classList.contains("package-result-grid") ||
-          parentGrid.classList.contains("reviews-grid"))
+        staggerGroups.some((className) =>
+          parentGrid.classList.contains(className),
+        )
       ) {
         const siblingIndex = Array.from(parentGrid.children).indexOf(el);
         if (siblingIndex > 0) {
-          el.style.setProperty("--reveal-stagger", `${Math.min(siblingIndex * 0.1, 0.5)}s`);
+          el.style.setProperty(
+            "--reveal-stagger",
+            `${Math.min(siblingIndex * 0.07, 0.21)}s`,
+          );
         }
       }
     });
@@ -92,30 +116,37 @@ export function ScrollReveal() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-revealed");
-            observer.unobserve(entry.target);
+          } else if (!entry.target.contains(document.activeElement)) {
+            const element = entry.target as HTMLElement;
+            // Reset only outside the viewport, ready for either scroll direction.
+            element.style.setProperty("--reveal-y", entry.boundingClientRect.bottom <= 0 ? "-24px" : "24px");
+            element.classList.remove("is-revealed");
           }
         });
       },
       {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
+        threshold: 0,
+        rootMargin: "0px",
+      },
     );
 
     elements.forEach((el) => {
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) {
-        // Small timeout so initial visible items fade in smoothly on page transition
-        setTimeout(() => {
-          el.classList.add("is-revealed");
-        }, 60);
-      } else {
-        observer.observe(el);
+        el.classList.add("is-revealed");
       }
+      observer.observe(el);
     });
 
     return () => {
       observer.disconnect();
+      motionPreference.removeEventListener("change", syncMotionPreference);
+      elements.forEach((el) => {
+        el.classList.remove("reveal-item", "is-revealed");
+        el.style.removeProperty("--reveal-y");
+        el.style.removeProperty("--reveal-stagger");
+      });
+      document.documentElement.classList.remove("js-ready");
     };
   }, [pathname]);
 

@@ -98,13 +98,19 @@ export default function StayPage() {
       <section className="section stay-why-section">
         <div className="shell">
           <div className="stay-section-header">
-            <p className="eyebrow"><span />The Complete Experience</p>
+            <p className="eyebrow">
+              <span />
+              The Complete Experience
+            </p>
             <h2>
-              Why stay at Green Village<br />
+              Why stay at Green Village
+              <br />
               <em>during your Anuradhapura trip?</em>
             </h2>
             <p className="stay-section-subtitle">
-              Instead of an impersonal commercial hotel, Green Village connects your sacred city tours with genuine family warmth and village serenity.
+              Instead of an impersonal commercial hotel, Green Village connects
+              your sacred city tours with genuine family warmth and village
+              serenity.
             </p>
           </div>
 
@@ -142,18 +148,27 @@ export default function StayPage() {
           </div>
 
           <div className="stay-host-content">
-            <p className="eyebrow"><span />Meet Your Host &amp; Guide</p>
+            <p className="eyebrow">
+              <span />
+              Meet Your Host &amp; Guide
+            </p>
             <h2>
-              “I guide because every traveller<br />
+              “I guide because every traveller
+              <br />
               <em>deserves to feel this place.”</em>
             </h2>
 
             <p className="stay-host-lead-p">
-              <strong>Gunarathna</strong> is a local English teacher, community volunteer, and Airbnb&apos;s highest-reviewed tour guide in Anuradhapura.
+              <strong>Gunarathna</strong> is a local English teacher, community
+              volunteer, and Airbnb&apos;s highest-reviewed tour guide in
+              Anuradhapura.
             </p>
 
             <p className="stay-host-text">
-              For over two decades, he has welcomed travellers from around the world into his home. With fluent English, deep Buddhist knowledge, and natural warmth, Gunarathna ensures your time in the cultural triangle feels personal, relaxed, and deeply meaningful.
+              For over two decades, he has welcomed travellers from around the
+              world into his home. With fluent English, deep Buddhist knowledge,
+              and natural warmth, Gunarathna ensures your time in the cultural
+              triangle feels personal, relaxed, and deeply meaningful.
             </p>
 
             <div className="stay-host-buttons">
@@ -163,7 +178,7 @@ export default function StayPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Learn More on Green Village Website <span>↗</span>
+                Learn More on Green Village Website
               </a>
               <a
                 className="button button-dark"
@@ -171,7 +186,7 @@ export default function StayPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Read 100+ Reviews on Airbnb <span>↗</span>
+                Read 100+ Reviews on Airbnb
               </a>
             </div>
           </div>
@@ -182,13 +197,19 @@ export default function StayPage() {
       <section className="section stay-room-section">
         <div className="shell">
           <div className="stay-section-header">
-            <p className="eyebrow"><span />Guesthouse Amenities</p>
+            <p className="eyebrow">
+              <span />
+              Guesthouse Amenities
+            </p>
             <h2>
-              Private, comfortable<br />
+              Private, comfortable
+              <br />
               <em>and thoughtfully equipped.</em>
             </h2>
             <p className="stay-section-subtitle">
-              Your private guesthouse accommodation provides everything you need to recharge after exploring ancient stone ruins in the tropical sun.
+              Your private guesthouse accommodation provides everything you need
+              to recharge after exploring ancient stone ruins in the tropical
+              sun.
             </p>
           </div>
 
@@ -209,8 +230,13 @@ export default function StayPage() {
         <div className="shell">
           <div className="stay-gallery-top">
             <div>
-              <p className="eyebrow"><span />Photo Gallery</p>
-              <h2>Moments at <em>Green Village</em></h2>
+              <p className="eyebrow">
+                <span />
+                Photo Gallery
+              </p>
+              <h2>
+                Moments at <em>Green Village</em>
+              </h2>
             </div>
             <a
               className="button button-subtle-stay"
@@ -218,7 +244,7 @@ export default function StayPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              View All Photos on Green Village <span>↗</span>
+              View All Photos on Green Village
             </a>
           </div>
 
@@ -230,7 +256,9 @@ export default function StayPage() {
                 fill
                 sizes="(max-width: 860px) 100vw, 45vw"
               />
-              <span className="stay-photo-caption">Guesthouse &amp; Tropical Garden</span>
+              <span className="stay-photo-caption">
+                Guesthouse &amp; Tropical Garden
+              </span>
             </div>
             <div className="stay-photo-card">
               <Image
@@ -276,9 +304,13 @@ export default function StayPage() {
       <section className="section stay-reviews-section">
         <div className="shell">
           <div className="stay-section-header">
-            <p className="eyebrow"><span />Airbnb Guest Feedback</p>
+            <p className="eyebrow">
+              <span />
+              Airbnb Guest Feedback
+            </p>
             <h2>
-              Loved by travellers from<br />
+              Loved by travellers from
+              <br />
               <em>around the world.</em>
             </h2>
           </div>
@@ -309,11 +341,14 @@ export default function StayPage() {
               Reserve Your Stay
             </p>
             <h2>
-              Ready to visit<br />
+              Ready to visit
+              <br />
               <em>Green Village Homestay?</em>
             </h2>
             <p>
-              Check availability directly on Airbnb or visit the dedicated Green Village website to plan your dates, meals, and private Anuradhapura tour with Gunarathna.
+              Check availability directly on Airbnb or visit the dedicated Green
+              Village website to plan your dates, meals, and private
+              Anuradhapura tour with Gunarathna.
             </p>
           </div>
 
@@ -324,7 +359,7 @@ export default function StayPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Visit Green Village Website <span>↗</span>
+              Visit Green Village Website
             </a>
 
             <a
@@ -333,7 +368,7 @@ export default function StayPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Book on Airbnb (4.97 ★) <span>↗</span>
+              Book on Airbnb (4.97 ★)
             </a>
 
             <a
@@ -342,7 +377,8 @@ export default function StayPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Explore Room Amenities &amp; Guide at green-village-six.vercel.app →
+              Explore Room Amenities &amp; Guide at green-village-six.vercel.app
+              →
             </a>
           </div>
         </div>

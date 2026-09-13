@@ -1,0 +1,81 @@
+/* Phone-only photographic hero. Desktop and tablet compositions are unchanged. */
+@media (max-width: 620px) {
+  .premium-home-hero {
+    position: relative;
+    isolation: isolate;
+    background: #10251e;
+    color: #fff;
+    min-height: 0;
+  }
+
+  .premium-home-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(180deg, #09201966 0%, #0920198c 55%, #092019b3 100%),
+      url("/places/ruwanweliseya.jpg") 51% center / cover no-repeat;
+    pointer-events: none;
+  }
+
+  .premium-home-hero .premium-hero-grid {
+    width: calc(100% - 40px);
+    padding-block: 44px 24px;
+    gap: 12px;
+    min-height: 0;
+    align-content: start;
+  }
+
+  .premium-home-hero .hero-story-col { text-align: left; }
+  .premium-home-hero .premium-hero-eyebrow {
+    display: none;
+  }
+
+  .premium-home-hero h1 {
+    color: #fff;
+    text-align: left;
+    font-size: clamp(32px, 8.5vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -.035em;
+    margin: 0 0 20px;
+  }
+  .premium-home-hero h1 em { display: block; color: #f2d99a; }
+  .premium-home-hero .hero-human-lead {
+    color: #f1f3ed;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+  }
+
+  .premium-home-hero .hero-journey-details {
+    /* These details repeat the introduction; keep the phone hero focused. */
+    display: none;
+  }
+  .premium-home-hero .hero-actions { display: flex; flex-direction: column; align-items: stretch; margin-top: 26px; gap: 8px; }
+  .premium-home-hero .hero-actions .button {
+    min-height: 48px;
+    background: #f2d99a;
+    color: #14241c;
+    border-color: #f2d99a;
+    box-shadow: none;
+    width: 100%;
+    font-size: 14px;
+  }
+  .premium-home-hero .hero-text-link {
+    min-height: 44px;
+    color: #fff;
+    border: 0;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+  }
+  .premium-home-hero .hero-text-link span { display: none; }
+  .premium-home-hero .hero-trust-line { display: none; }
+
+  /* The phone hero uses the background photo, with no image-popup control. */
+  .premium-home-hero .premium-hero-grid > button[aria-haspopup="dialog"] {
+    display: none;
+  }
+}

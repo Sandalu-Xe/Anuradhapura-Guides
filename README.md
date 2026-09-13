@@ -1,100 +1,54 @@
-# vinext-starter
+# Anuradhapura Guide
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+A responsive travel website for private tours of Anuradhapura, Mihintale, and Wilpattu, with a Green Village homestay page.
 
-## Prerequisites
+## Local development
 
-- Node.js `>=22.13.0`
+Use Node.js 20 or newer and the existing npm lockfile.
 
-## Quick Start
+```sh
+npm ci
+npm run dev -- --port 3001
+```
 
-```bash
-npm install
-npm run dev
+Open http://localhost:3001. No database or sign-in is required for the public pages.
+
+## Checks
+
+```sh
+npm run typecheck
+npm run lint
+npm test
 npm run build
 ```
 
-This starter does not use `wrangler.jsonc`.
+The smoke tests require the running development server on port 3001. Override it with `TEST_BASE_URL` when testing another server. They check all main routes, a place detail, shared navigation, and a missing route. They do not replace interactive or visual testing.
 
-## Included Shape
+## Structure
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+- `app/page.tsx` — homepage composition.
+- `app/places/`, `stay/`, `packages/`, `contact/`, `reviews/` — route components and route-local interactions.
+- `app/_components/` — shared header, footer, photo dialog, page hero, and animation behavior.
+- `app/_data/site.ts` — shared navigation, places, homestay information, and reviews.
+- `app/_data/home.ts` — homepage editorial content.
+- `app/_data/packages.ts` — active package catalogue and destination filters.
+- `app/_data/stay-gallery.ts` — homestay gallery images and captions.
+- `app/booking-form.tsx` — validated enquiry form that prepares an email draft; no automatic sending.
+- `app/globals.css` — ordered stylesheet entry point.
+- `app/_styles/` — shared foundations, route styles, buttons, and responsive styles.
+- `public/` — existing photographs and brand assets.
+- `tests/` — HTTP route smoke tests.
 
-## Workspace Auth Headers
+## Styling conventions
 
-Signed-in visitors receive both `oai-authenticated-user-id` and `oai-authenticated-user-email`. Private Sites require every visitor to sign in; public Sites may also have anonymous visitors, for whom neither header is present.
+The stylesheet imports deliberately retain the existing cascade order, so the refactor does not redesign the site. Foundational rules load first, editorial refinements next, and mobile overrides last. Edit the relevant stylesheet rather than appending unrelated overrides to the entry point. Component-specific photo styles remain in `hero-photo.module.css`.
 
-The user ID is stable for the same user on the same Site and different across Sites. Email and name are intended for display or contact purposes.
+## Content maintenance
 
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
+Edit package content in `app/_data/packages.ts`, place information in `app/_data/site.ts`, and home-specific stories in `app/_data/home.ts`. Gallery controls are manual and keep the selected photo visible. Review copy remains explicitly marked as sample content on the reviews page.
 
-Treat the full name as optional and fall back to email when it is absent:
+## Hosting compatibility
 
-```tsx
-import { headers } from "next/headers";
+Local scripts run Next.js. The repository also retains its existing Sites/Cloudflare adapter (`vite.config.ts`, `worker/`, `.openai/hosting.json`), optional database scaffolding, and ChatGPT authentication helpers. These are hosting integration boundaries, not part of the public-page runtime. Do not delete them or change the hosting manifest without deliberately migrating the deployment setup.
 
-export default async function Home() {
-  const requestHeaders = await headers();
-  const userId = requestHeaders.get("oai-authenticated-user-id");
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
-```
-
-## Optional Dispatch-Owned ChatGPT Sign-In
-
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
-
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
-
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
-
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
-
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+This refactor does not deploy or change hosting configuration.

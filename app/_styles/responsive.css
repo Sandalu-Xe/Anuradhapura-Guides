@@ -1,0 +1,318 @@
+/* Shared responsive contract. Route-specific visual styles remain in globals.css. */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--signal);
+  outline-offset: 4px;
+}
+:where(main, section, article, aside, form, nav, .shell) {
+  min-width: 0;
+}
+:where(h1, h2, h3, p, a, dd) {
+  overflow-wrap: anywhere;
+}
+.field input,
+.field select,
+.field textarea {
+  max-width: 100%;
+  min-width: 0;
+}
+.js-ready .reveal-item {
+  transition-duration: 0.7s;
+  transition-delay: var(--reveal-stagger, 0s);
+  will-change: auto;
+}
+.js-ready .reveal-item:focus-within {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0s;
+}
+@media (max-width: 620px) {
+  .js-ready .reveal-item {
+    --reveal-x: 0px;
+    --reveal-rotate: 0deg;
+    transition-duration: 0.5s;
+    transition-delay: 0s;
+  }
+}
+
+/* Two balanced editorial columns: tour introduction and portrait photograph. */
+@media (min-width: 1061px) {
+  .premium-home-hero .premium-hero-grid {
+    width: min(1320px, calc(100% - 96px));
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(48px, 6vw, 96px);
+    padding-block: 64px 80px;
+  }
+  .premium-home-hero h1 {
+    font-size: clamp(52px, 4.8vw, 74px);
+    line-height: 1.04;
+    letter-spacing: -0.045em;
+  }
+  .premium-home-hero .hero-human-lead {
+    max-width: 510px;
+    font-size: 18px;
+    line-height: 1.75;
+  }
+}
+.hero-journey-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 32px 0 0;
+  padding: 24px 0;
+  border-top: 1px solid #17201926;
+  border-bottom: 1px solid #17201926;
+}
+.hero-journey-details div {
+  min-width: 0;
+}
+.hero-journey-details dt {
+  color: #72756c;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.hero-journey-details dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 550;
+}
+@media (max-width: 620px) {
+  .hero-journey-details {
+    gap: 10px;
+    padding-block: 20px;
+  }
+  .hero-journey-details dd {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1060px) {
+  .editorial-page-hero-visual,
+  .detail-hero-visual,
+  .stay-hero-main-frame {
+    animation: mobile-media-enter 0.5s ease both;
+  }
+}
+
+@media (max-width: 1060px) and (min-width: 861px) {
+  .header-cta {
+    display: none;
+  }
+  .desktop-nav a {
+    padding-inline: 12px;
+  }
+  .premium-hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+@media (max-width: 860px) {
+  .shell {
+    width: calc(100% - 40px);
+  }
+  .mobile-menu-panel {
+    max-height: calc(100dvh - 54px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .mobile-menu-panel nav {
+    padding-bottom: max(32px, env(safe-area-inset-bottom));
+  }
+  .site-brand {
+    min-width: 0;
+  }
+  .site-brand img {
+    flex-shrink: 0;
+  }
+  .mobile-menu-button {
+    flex-shrink: 0;
+  }
+  .hero-trust-line,
+  .stay-hero-badges-row,
+  .contact-promises,
+  .package-toolbar,
+  .explorer-package-foot {
+    flex-wrap: wrap;
+  }
+  .package-app-layout,
+  .contact-grid,
+  .story-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .package-filter-panel {
+    position: static;
+  }
+  .package-search {
+    width: 100%;
+    min-width: 0;
+  }
+  .package-search input {
+    min-width: 0;
+    width: 100%;
+    font-size: 16px;
+  }
+  .destination-filter-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .destination-filter-list button {
+    min-height: 44px;
+    max-width: 100%;
+  }
+  .stay-nav-arrow {
+    opacity: 1;
+    width: 44px;
+    height: 44px;
+  }
+  .stay-hero-badges-row > *,
+  .stay-rating-badge,
+  .stay-info-pill {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+  }
+  .footer-intro p,
+  .footer-callout h2 {
+    font-family: var(--font-inter), sans-serif;
+  }
+  .footer-bottom {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    font-size: 16px;
+    scroll-margin-block: 80px;
+  }
+  .booking-success {
+    min-height: 0;
+    padding: 28px 20px;
+    gap: 12px;
+  }
+  .booking-success button {
+    min-height: 44px;
+  }
+}
+@keyframes mobile-media-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 620px) {
+  .shell {
+    width: calc(100% - 32px);
+  }
+  .section,
+  .tour-overview-section,
+  .guide-welcome-section,
+  .itinerary-section,
+  .reviews-section,
+  .page-directory-section,
+  .places-listing,
+  .package-explorer,
+  .reviews-page,
+  .contact-form-section,
+  .stay-why-section,
+  .stay-host-section,
+  .stay-room-section,
+  .stay-gallery-section,
+  .stay-reviews-section {
+    padding-block: 64px;
+  }
+  .places-grid,
+  .package-result-grid,
+  .guide-highlights-grid,
+  .reviews-grid,
+  .stay-room-grid,
+  .page-directory-grid,
+  .booking-fields-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .reviews-editorial-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+  .review-card-item {
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+  }
+  .review-card-item,
+  .reviews-grid figure {
+    height: auto;
+  }
+  .premium-home-hero h1 br,
+  .package-app-heading h2 br {
+    display: none;
+  }
+  .hero-human-lead,
+  .destination-card-body > p,
+  .page-directory-copy p,
+  .stay-room-card p,
+  .stay-why-card p,
+  .explorer-package-card p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .destination-overview-grid {
+    margin-inline: 0;
+    padding-inline: 0;
+    scroll-padding-inline: 0;
+  }
+  .destination-overview-card {
+    flex-shrink: 0;
+  }
+  .explorer-package-foot {
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .explorer-package-foot > a {
+    width: 100%;
+  }
+  .story-index {
+    flex-wrap: wrap;
+  }
+  .visit-card dl > div,
+  .contact-grid dl > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  .cta-strip-inner {
+    flex-direction: column;
+  }
+  .not-found {
+    min-height: 70svh;
+    padding: 56px 20px;
+  }
+  .not-found h1 {
+    font-size: clamp(40px, 12vw, 64px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js-ready .reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

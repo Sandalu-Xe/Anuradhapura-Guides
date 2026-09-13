@@ -1,0 +1,117 @@
+/* One consistent capsule silhouette for every primary action */
+.button,
+.header-cta,
+.mobile-menu-cta,
+.cta-strip a,
+.tour-overview-intro a,
+.hero-text-link,
+.destination-card-body > a,
+.arrow-link,
+.filter-help-card a,
+.explorer-package-foot > a,
+.package-empty-state button,
+.booking-success button,
+.stay-banner-link,
+.footer-callout a,
+.back-link {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: fit-content;
+  padding: 0 24px;
+  border-radius: 999px;
+  text-align: center;
+}
+
+.button {
+  min-height: 58px;
+  padding-inline: 30px;
+  font-size: 13px;
+}
+.hero-text-link {
+  border: 1px solid rgba(24, 28, 24, 0.2);
+  background: transparent;
+}
+.tour-overview-intro a {
+  border: 0;
+  background: var(--night);
+  color: #fff;
+}
+.tour-overview-intro a span {
+  color: var(--signal);
+}
+.destination-card-body > a {
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(9, 18, 12, 0.35);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+.arrow-link {
+  border: 1px solid rgba(24, 28, 24, 0.2);
+  background: var(--night);
+  color: #fff;
+}
+.places-preview .arrow-link {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: #fff;
+  color: var(--night);
+}
+.filter-help-card a {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+.explorer-package-foot > a {
+  border: 0;
+  background: var(--night);
+  color: #fff;
+}
+.package-empty-state button {
+  min-height: 52px;
+  padding-inline: 22px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+.booking-success button {
+  border: 1px solid var(--line);
+  background: var(--night);
+  color: #fff;
+  font-size: 12px;
+}
+.stay-banner-link {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  text-decoration: none;
+}
+.footer-callout a {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+.back-link {
+  min-height: 44px;
+  padding-inline: 18px;
+  border: 1px solid rgba(24, 28, 24, 0.18);
+}
+.destination-filter-list button {
+  border-radius: 999px;
+}
+
+@media (max-width: 620px) {
+  .button,
+  .tour-overview-intro a,
+  .hero-text-link,
+  .arrow-link,
+  .destination-card-body > a,
+  .explorer-package-foot > a,
+  .back-link {
+    max-width: 100%;
+  }
+  .tour-overview-intro a,
+  .arrow-link {
+    width: 100%;
+  }
+}
